@@ -1,0 +1,79 @@
+$client = New-Object System.Net.Sockets.TcpClient("127.0.0.1", 8080)
+$stream = $client.GetStream()
+$bytes = [Text.Encoding]::ASCII.GetBytes("quit`n")
+$stream.Write($bytes, 0, $bytes.Length)
+$buffer = New-Object byte[] 256
+$n = $stream.Read($buffer, 0, $buffer.Length)
+[Text.Encoding]::ASCII.GetString($buffer, 0, $n)
+
+
+$client = New-Object System.Net.Sockets.TcpClient("127.0.0.1", 8080)
+$stream = $client.GetStream()
+$bytes = [Text.Encoding]::ASCII.GetBytes("root`n")
+$stream.Write($bytes, 0, $bytes.Length)
+$buffer = New-Object byte[] 256
+$n = $stream.Read($buffer, 0, $buffer.Length)
+[Text.Encoding]::ASCII.GetString($buffer, 0, $n)
+
+
+$client = New-Object System.Net.Sockets.TcpClient("127.0.0.1", 8080)
+$stream = $client.GetStream()
+$bytes = [Text.Encoding]::ASCII.GetBytes("children 0`n")
+$stream.Write($bytes, 0, $bytes.Length)
+$buffer = New-Object byte[] 256
+$n = $stream.Read($buffer, 0, $buffer.Length)
+[Text.Encoding]::ASCII.GetString($buffer, 0, $n)
+
+
+$client = New-Object System.Net.Sockets.TcpClient("127.0.0.1", 8080)
+$stream = $client.GetStream()
+$bytes = [Text.Encoding]::ASCII.GetBytes("board`n")
+$stream.Write($bytes, 0, $bytes.Length)
+$buffer = New-Object byte[] 256
+$n = $stream.Read($buffer, 0, $buffer.Length)
+[Text.Encoding]::ASCII.GetString($buffer, 0, $n)
+
+
+$client = New-Object System.Net.Sockets.TcpClient("127.0.0.1", 8080)
+$stream = $client.GetStream()
+$bytes = [Text.Encoding]::ASCII.GetBytes("ranks`n")
+$stream.Write($bytes, 0, $bytes.Length)
+$buffer = New-Object byte[] 256
+$n = $stream.Read($buffer, 0, $buffer.Length)
+[Text.Encoding]::ASCII.GetString($buffer, 0, $n)
+
+
+$client = New-Object System.Net.Sockets.TcpClient("127.0.0.1", 8080)
+$stream = $client.GetStream()
+$bytes = [Text.Encoding]::ASCII.GetBytes("deck`n")
+$stream.Write($bytes, 0, $bytes.Length)
+$buffer = New-Object byte[] 256
+$n = $stream.Read($buffer, 0, $buffer.Length)
+[Text.Encoding]::ASCII.GetString($buffer, 0, $n)
+
+
+$client = New-Object System.Net.Sockets.TcpClient("127.0.0.1", 8080)
+$stream = $client.GetStream()
+$bytes = [Text.Encoding]::ASCII.GetBytes("solve`n")
+$stream.Write($bytes, 0, $bytes.Length)
+$buffer = New-Object byte[] 256
+$n = $stream.Read($buffer, 0, $buffer.Length)
+[Text.Encoding]::ASCII.GetString($buffer, 0, $n)
+
+
+$client = New-Object System.Net.Sockets.TcpClient("127.0.0.1", 8080)
+$stream = $client.GetStream()
+$bytes = [Text.Encoding]::ASCII.GetBytes("strategy 0 -1 -1`n")
+$stream.Write($bytes, 0, $bytes.Length)
+$buffer = New-Object byte[] 256
+$n = $stream.Read($buffer, 0, $buffer.Length)
+[Text.Encoding]::ASCII.GetString($buffer, 0, $n)
+
+
+$client = New-Object System.Net.Sockets.TcpClient("127.0.0.1", 8080)
+$stream = $client.GetStream()
+$bytes = [Text.Encoding]::ASCII.GetBytes("build Ah,Kd,2c 30 30 130`n")
+$stream.Write($bytes, 0, $bytes.Length)
+$buffer = New-Object byte[] 256
+$n = $stream.Read($buffer, 0, $buffer.Length)
+[Text.Encoding]::ASCII.GetString($buffer, 0, $n)

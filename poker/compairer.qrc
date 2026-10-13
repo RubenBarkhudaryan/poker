@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/compairer/card5_dic_sorted.txt</file>
+        <file>resources/compairer/card5_dic_zipped.bin</file>
+    </qresource>
+</RCC>

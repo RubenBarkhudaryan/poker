@@ -1,0 +1,75 @@
+#!/bin/sh
+#
+# Formats only the lines this commit touches, so legacy formatting in the rest
+# of the file is left alone and git blame stays readable.
+#
+# Skip with: git commit --no-verify
+
+set -e
+
+if [ -n "$SKIP_CLANG_FORMAT" ]; then
+    exit 0
+fi
+
+CF="$CLANG_FORMAT"
+if [ -z "$CF" ]; then
+    for candidate in \
+        clang-format \
+        "/c/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/x64/bin/clang-format.exe" \
+        "/c/Program Files/LLVM/bin/clang-format.exe" \
+        "/c/Qt/Tools/QtCreator/bin/clang/bin/clang-format.exe"
+    do
+        if command -v "$candidate" >/dev/null 2>&1; then
+            CF="$candidate"
+            break
+        fi
+    done
+fi
+
+if [ -z "$CF" ]; then
+    echo "pre-commit: clang-format not found, skipping formatting." >&2
+    echo "            Set CLANG_FORMAT to its path to enable it." >&2
+    exit 0
+fi
+
+# Vendored headers and the forwarding stubs under include/ are not ours to format.
+staged=$(git diff --cached --name-only --diff-filter=ACM \
+    | grep -E '\.(c|cc|cpp|cxx|h|hpp)$' \
+    | grep -v '^include/' \
+    || true)
+
+[ -z "$staged" ] && exit 0
+
+formatted=""
+for file in $staged; do
+    [ -f "$file" ] || continue
+
+    # Formatting writes to the working tree, so a file with unstaged edits would
+    # get those edits swept into the commit. Leave those alone.
+    if ! git diff --quiet -- "$file"; then
+        echo "pre-commit: $file has unstaged changes, not formatting it." >&2
+        continue
+    fi
+
+    ranges=$(git diff --cached -U0 -- "$file" \
+        | sed -n 's/^@@ -[0-9,]* +\([0-9]*\),\([0-9]*\) @@.*/\1 \2/p;s/^@@ -[0-9,]* +\([0-9]*\) @@.*/\1 1/p' \
+        | awk '$2 > 0 { print "--lines=" $1 ":" $1 + $2 - 1 }')
+
+    [ -z "$ranges" ] && continue
+
+    before=$(git hash-object "$file")
+    # shellcheck disable=SC2086
+    "$CF" -i --style=file $ranges "$file"
+    after=$(git hash-object "$file")
+
+    if [ "$before" != "$after" ]; then
+        git add -- "$file"
+        formatted="$formatted $file"
+    fi
+done
+
+if [ -n "$formatted" ]; then
+    echo "pre-commit: clang-format applied to:$formatted"
+fi
+
+exit 0

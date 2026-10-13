@@ -1,0 +1,32 @@
+﻿#ifndef STRATEGYITEMDELEGATE_H
+#define STRATEGYITEMDELEGATE_H
+
+#include <QStyledItemDelegate>
+#include "include/ui/worditemdelegate.h"
+#include "include/ui/treeitem.h"
+#include "include/api/isolver_backend.h"
+#include "include/Card.h"
+#include "include/ui/tablestrategymodel.h"
+#include "include/ui/detailwindowsetting.h"
+#include "include/library.h"
+
+class StrategyItemDelegate : public WordItemDelegate {
+    Q_OBJECT
+
+public:
+    explicit StrategyItemDelegate(ISolverBackend* backend, DetailWindowSetting* detailWindowSetting,
+                                  QObject* parent = 0);
+
+private:
+    ISolverBackend* backend_ = nullptr;
+    DetailWindowSetting* detailWindowSetting = NULL;
+
+protected:
+    void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const;
+    void paint_strategy(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index,
+                        bool withEVs = false) const;
+    void paint_range(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const;
+    void paint_evs(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const;
+};
+
+#endif // STRATEGYITEMDELEGATE_H

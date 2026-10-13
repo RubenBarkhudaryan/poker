@@ -1,0 +1,1370 @@
+{
+  ".githooks/pre-commit": {
+    "mtime": 1790950553.316404,
+    "seen": 1791790807.3335373,
+    "ast_hash": "113599ddd66cc50ae0ecae162038a11b",
+    "semantic_hash": "113599ddd66cc50ae0ecae162038a11b"
+  },
+  ".vscode/extensions.json": {
+    "mtime": 1790950553.3174355,
+    "seen": 1791790807.3335373,
+    "ast_hash": "cd9b8799912d664f49f2de3362ff90d3",
+    "semantic_hash": "cd9b8799912d664f49f2de3362ff90d3"
+  },
+  ".vscode/launch.json": {
+    "mtime": 1790950553.3184006,
+    "seen": 1791790807.3335373,
+    "ast_hash": "7aeae6a52d97bee1f8899d88493265b1",
+    "semantic_hash": "7aeae6a52d97bee1f8899d88493265b1"
+  },
+  ".vscode/settings.json": {
+    "mtime": 1790950553.3184006,
+    "seen": 1791790807.3335373,
+    "ast_hash": "95de92cb539e774c83bb4b339c74a9ee",
+    "semantic_hash": "95de92cb539e774c83bb4b339c74a9ee"
+  },
+  ".vscode/tasks.json": {
+    "mtime": 1790950553.319432,
+    "seen": 1791790807.3335373,
+    "ast_hash": "1eb02307e61418d51c9aa078cd12ff25",
+    "semantic_hash": "1eb02307e61418d51c9aa078cd12ff25"
+  },
+  "boardselector.cpp": {
+    "mtime": 1790950553.3263,
+    "seen": 1791790807.3335373,
+    "ast_hash": "c823122046b9aa843e1e16d5f54b0c93",
+    "semantic_hash": "c823122046b9aa843e1e16d5f54b0c93"
+  },
+  "boardselector.h": {
+    "mtime": 1790950553.3263,
+    "seen": 1791790807.3335373,
+    "ast_hash": "eb7247dc280034cea2b6623c7a426d94",
+    "semantic_hash": "eb7247dc280034cea2b6623c7a426d94"
+  },
+  "build-AppImage.sh": {
+    "mtime": 1790950553.3272984,
+    "seen": 1791790807.3335373,
+    "ast_hash": "c772d070ee506b543441d876bb5ad785",
+    "semantic_hash": "c772d070ee506b543441d876bb5ad785"
+  },
+  "htmltableview.cpp": {
+    "mtime": 1790950553.3282964,
+    "seen": 1791790807.3335373,
+    "ast_hash": "2624f1299de444fb44d906e60369291d",
+    "semantic_hash": "2624f1299de444fb44d906e60369291d"
+  },
+  "htmltableview.h": {
+    "mtime": 1790950553.3290582,
+    "seen": 1791790807.3335373,
+    "ast_hash": "aea9598156a3d407b4ab723cdc55fc13",
+    "semantic_hash": "aea9598156a3d407b4ab723cdc55fc13"
+  },
+  "include/Card.h": {
+    "mtime": 1790950553.4085631,
+    "seen": 1791790807.3335373,
+    "ast_hash": "11ae3aeb44588ab5f1d9031b4bbc6f49",
+    "semantic_hash": "11ae3aeb44588ab5f1d9031b4bbc6f49"
+  },
+  "include/Deck.h": {
+    "mtime": 1790950553.4085631,
+    "seen": 1791790807.3335373,
+    "ast_hash": "4c0d5f81b2b55afde300ace990bd3251",
+    "semantic_hash": "4c0d5f81b2b55afde300ace990bd3251"
+  },
+  "include/GameTree.h": {
+    "mtime": 1790950553.4095638,
+    "seen": 1791790807.3335373,
+    "ast_hash": "2d3a5bcc0be1ccbc26fc854130f78815",
+    "semantic_hash": "2d3a5bcc0be1ccbc26fc854130f78815"
+  },
+  "include/compairer/Compairer.h": {
+    "mtime": 1790950553.4095638,
+    "seen": 1791790807.3335373,
+    "ast_hash": "aa755a9485f820571eed242001c881e3",
+    "semantic_hash": "aa755a9485f820571eed242001c881e3"
+  },
+  "include/compairer/Dic5Compairer.h": {
+    "mtime": 1790950553.4105635,
+    "seen": 1791790807.3335373,
+    "ast_hash": "9b14d961fa540f2ab31b789f02b40998",
+    "semantic_hash": "9b14d961fa540f2ab31b789f02b40998"
+  },
+  "include/experimental/TCfrSolver.h": {
+    "mtime": 1790950553.4105635,
+    "seen": 1791790807.3335373,
+    "ast_hash": "60ae549ca5052ff9f11eac1ecfc39e6c",
+    "semantic_hash": "60ae549ca5052ff9f11eac1ecfc39e6c"
+  },
+  "include/json.hpp": {
+    "mtime": 1790950553.4155614,
+    "seen": 1791790807.3335373,
+    "ast_hash": "4c0baeea2b46ca7955df00dacd514629",
+    "semantic_hash": "4c0baeea2b46ca7955df00dacd514629"
+  },
+  "include/library.h": {
+    "mtime": 1790950553.4165628,
+    "seen": 1791790807.3335373,
+    "ast_hash": "bb6331487b7104aefb6b49c6d8b8acda",
+    "semantic_hash": "bb6331487b7104aefb6b49c6d8b8acda"
+  },
+  "include/nodes/ActionNode.h": {
+    "mtime": 1790950553.4165628,
+    "seen": 1791790807.3335373,
+    "ast_hash": "c675c1aa3b411c426a9d342fb59ae779",
+    "semantic_hash": "c675c1aa3b411c426a9d342fb59ae779"
+  },
+  "include/nodes/ChanceNode.h": {
+    "mtime": 1790950553.4175627,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d0dfb0e7dce2e91fa13f2f8dc61b57f0",
+    "semantic_hash": "d0dfb0e7dce2e91fa13f2f8dc61b57f0"
+  },
+  "include/nodes/GameActions.h": {
+    "mtime": 1790950553.4175627,
+    "seen": 1791790807.3335373,
+    "ast_hash": "2f0ffce3237c20a3dacd2931f224234b",
+    "semantic_hash": "2f0ffce3237c20a3dacd2931f224234b"
+  },
+  "include/nodes/GameTreeNode.h": {
+    "mtime": 1790950553.4175627,
+    "seen": 1791790807.3335373,
+    "ast_hash": "3db64c621d1fb0f1ecfbe53c395c1aa4",
+    "semantic_hash": "3db64c621d1fb0f1ecfbe53c395c1aa4"
+  },
+  "include/nodes/ShowdownNode.h": {
+    "mtime": 1790950553.418563,
+    "seen": 1791790807.3335373,
+    "ast_hash": "a962561fb17e18a9579bd12862d8803b",
+    "semantic_hash": "a962561fb17e18a9579bd12862d8803b"
+  },
+  "include/nodes/TerminalNode.h": {
+    "mtime": 1790950553.418563,
+    "seen": 1791790807.3335373,
+    "ast_hash": "ad265d6f6ff5b77b0c12d50ada9aae8a",
+    "semantic_hash": "ad265d6f6ff5b77b0c12d50ada9aae8a"
+  },
+  "include/ranges/PrivateCards.h": {
+    "mtime": 1790950553.4195628,
+    "seen": 1791790807.3335373,
+    "ast_hash": "11cfd50a8e31dd684c32755912d805b8",
+    "semantic_hash": "11cfd50a8e31dd684c32755912d805b8"
+  },
+  "include/ranges/PrivateCardsManager.h": {
+    "mtime": 1790950553.4195628,
+    "seen": 1791790807.3335373,
+    "ast_hash": "2c25a2a504988814b1f0a77be31e6f31",
+    "semantic_hash": "2c25a2a504988814b1f0a77be31e6f31"
+  },
+  "include/ranges/RiverCombs.h": {
+    "mtime": 1790950553.4195628,
+    "seen": 1791790807.3335373,
+    "ast_hash": "4fc4307edce423ca5c8914b3a69791bb",
+    "semantic_hash": "4fc4307edce423ca5c8914b3a69791bb"
+  },
+  "include/ranges/RiverRangeManager.h": {
+    "mtime": 1790950553.420563,
+    "seen": 1791790807.3335373,
+    "ast_hash": "b7307b548468f978d502f039e629d422",
+    "semantic_hash": "b7307b548468f978d502f039e629d422"
+  },
+  "include/runtime/PokerSolver.h": {
+    "mtime": 1790950553.420563,
+    "seen": 1791790807.3335373,
+    "ast_hash": "32922db02c6b6d9b88b6296b4797176b",
+    "semantic_hash": "32922db02c6b6d9b88b6296b4797176b"
+  },
+  "include/runtime/qsolverjob.h": {
+    "mtime": 1790950553.4215634,
+    "seen": 1791790807.3335373,
+    "ast_hash": "10dab69beb0d6a176bc38a4e726aaf85",
+    "semantic_hash": "10dab69beb0d6a176bc38a4e726aaf85"
+  },
+  "include/solver/BestResponse.h": {
+    "mtime": 1790950553.4215634,
+    "seen": 1791790807.3335373,
+    "ast_hash": "eed54cbc013375859f6476b0e1154c91",
+    "semantic_hash": "eed54cbc013375859f6476b0e1154c91"
+  },
+  "include/solver/CfrSolver.h": {
+    "mtime": 1790950553.4225628,
+    "seen": 1791790807.3335373,
+    "ast_hash": "3a8f0e1eb5876e5fb6b80152820ce604",
+    "semantic_hash": "3a8f0e1eb5876e5fb6b80152820ce604"
+  },
+  "include/solver/PCfrSolver.h": {
+    "mtime": 1790950553.4225628,
+    "seen": 1791790807.3335373,
+    "ast_hash": "9486e4bfdf84b7a00ac64f8d157dbfe9",
+    "semantic_hash": "9486e4bfdf84b7a00ac64f8d157dbfe9"
+  },
+  "include/solver/Solver.h": {
+    "mtime": 1790950553.4235628,
+    "seen": 1791790807.3335373,
+    "ast_hash": "e3c08080b28a6b528633b6e4d58efdf7",
+    "semantic_hash": "e3c08080b28a6b528633b6e4d58efdf7"
+  },
+  "include/tools/CommandLineTool.h": {
+    "mtime": 1790950553.4235628,
+    "seen": 1791790807.3335373,
+    "ast_hash": "0f8551fe9f8c80a1b6444e4ee112fac1",
+    "semantic_hash": "0f8551fe9f8c80a1b6444e4ee112fac1"
+  },
+  "include/tools/GameTreeBuildingSettings.h": {
+    "mtime": 1790950553.4235628,
+    "seen": 1791790807.3335373,
+    "ast_hash": "e3e15f3a7cf7d2ae71b7e23ff5e28185",
+    "semantic_hash": "e3e15f3a7cf7d2ae71b7e23ff5e28185"
+  },
+  "include/tools/PrivateRangeConverter.h": {
+    "mtime": 1790950553.424563,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d32858bb76b1536f26e63147e2d8a9da",
+    "semantic_hash": "d32858bb76b1536f26e63147e2d8a9da"
+  },
+  "include/tools/Rule.h": {
+    "mtime": 1790950553.424563,
+    "seen": 1791790807.3335373,
+    "ast_hash": "2465472d2e391259a1819dd426de5678",
+    "semantic_hash": "2465472d2e391259a1819dd426de5678"
+  },
+  "include/tools/StreetSetting.h": {
+    "mtime": 1790950553.426286,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d9cb695a20325def2c7d06477e41bc84",
+    "semantic_hash": "d9cb695a20325def2c7d06477e41bc84"
+  },
+  "include/tools/argparse.hpp": {
+    "mtime": 1790950553.426286,
+    "seen": 1791790807.3335373,
+    "ast_hash": "2de8bbf1bf809152ca76b252201d16dd",
+    "semantic_hash": "2de8bbf1bf809152ca76b252201d16dd"
+  },
+  "include/tools/half-1-12-0.h": {
+    "mtime": 1790950553.4274867,
+    "seen": 1791790807.3335373,
+    "ast_hash": "c488b094c13c2d01691bef6fa32452d5",
+    "semantic_hash": "c488b094c13c2d01691bef6fa32452d5"
+  },
+  "include/tools/lookup8.h": {
+    "mtime": 1790950553.4284844,
+    "seen": 1791790807.3335373,
+    "ast_hash": "99a37d465c81ab45fff1995c34352464",
+    "semantic_hash": "99a37d465c81ab45fff1995c34352464"
+  },
+  "include/tools/progressbar.h": {
+    "mtime": 1790950553.429485,
+    "seen": 1791790807.3335373,
+    "ast_hash": "2043e09360330f4a2ce769576b68d966",
+    "semantic_hash": "2043e09360330f4a2ce769576b68d966"
+  },
+  "include/tools/qdebugstream.h": {
+    "mtime": 1790950553.429485,
+    "seen": 1791790807.3335373,
+    "ast_hash": "55a05568f76918c560e3ee757347db2a",
+    "semantic_hash": "55a05568f76918c560e3ee757347db2a"
+  },
+  "include/tools/tinyformat.h": {
+    "mtime": 1790950553.431484,
+    "seen": 1791790807.3335373,
+    "ast_hash": "97863db3e96855b850e9581d133783e6",
+    "semantic_hash": "97863db3e96855b850e9581d133783e6"
+  },
+  "include/tools/utils.h": {
+    "mtime": 1790950553.431484,
+    "seen": 1791790807.3335373,
+    "ast_hash": "12e448f2e003b82d8f5499fcc56a5cc6",
+    "semantic_hash": "12e448f2e003b82d8f5499fcc56a5cc6"
+  },
+  "include/trainable/CfrPlusTrainable.h": {
+    "mtime": 1790950553.433293,
+    "seen": 1791790807.3335373,
+    "ast_hash": "c31add2e82526eee76fc7b816c1c541d",
+    "semantic_hash": "c31add2e82526eee76fc7b816c1c541d"
+  },
+  "include/trainable/DiscountedCfrTrainable.h": {
+    "mtime": 1790950553.433293,
+    "seen": 1791790807.3335373,
+    "ast_hash": "3221e3383fae09b439eaa9437e3f0c83",
+    "semantic_hash": "3221e3383fae09b439eaa9437e3f0c83"
+  },
+  "include/trainable/DiscountedCfrTrainableHF.h": {
+    "mtime": 1790950553.4343424,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d749aef5f0da006e798cbcc90881b392",
+    "semantic_hash": "d749aef5f0da006e798cbcc90881b392"
+  },
+  "include/trainable/DiscountedCfrTrainableSF.h": {
+    "mtime": 1790950553.4343424,
+    "seen": 1791790807.3335373,
+    "ast_hash": "9c30b8137932cf4b481fb675bc2c7a05",
+    "semantic_hash": "9c30b8137932cf4b481fb675bc2c7a05"
+  },
+  "include/trainable/Trainable.h": {
+    "mtime": 1790950553.4343424,
+    "seen": 1791790807.3335373,
+    "ast_hash": "63479e8e09fa03e57160c8235f28b62e",
+    "semantic_hash": "63479e8e09fa03e57160c8235f28b62e"
+  },
+  "include/ui/boardselectortabledelegate.h": {
+    "mtime": 1790950553.4353464,
+    "seen": 1791790807.3335373,
+    "ast_hash": "f8d876cca1b393de294e81efbc2df0dc",
+    "semantic_hash": "f8d876cca1b393de294e81efbc2df0dc"
+  },
+  "include/ui/boardselectortablemodel.h": {
+    "mtime": 1790950553.4363437,
+    "seen": 1791790807.3335373,
+    "ast_hash": "b3d058418f7323c07afa7e5b3009f142",
+    "semantic_hash": "b3d058418f7323c07afa7e5b3009f142"
+  },
+  "include/ui/detailitemdelegate.h": {
+    "mtime": 1790950553.4363437,
+    "seen": 1791790807.3335373,
+    "ast_hash": "092064b994226c5537d8c82766b7f037",
+    "semantic_hash": "092064b994226c5537d8c82766b7f037"
+  },
+  "include/ui/detailviewermodel.h": {
+    "mtime": 1790950553.4373486,
+    "seen": 1791790807.3335373,
+    "ast_hash": "bbe7b15d023e444e38209af9b1f9d230",
+    "semantic_hash": "bbe7b15d023e444e38209af9b1f9d230"
+  },
+  "include/ui/detailwindowsetting.h": {
+    "mtime": 1790950553.4373486,
+    "seen": 1791790807.3335373,
+    "ast_hash": "9ff9fd24a33947fb7dc468f48bf736e6",
+    "semantic_hash": "9ff9fd24a33947fb7dc468f48bf736e6"
+  },
+  "include/ui/droptextedit.h": {
+    "mtime": 1790950553.4373486,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d1ee8d97af58efa6213851384e1254f5",
+    "semantic_hash": "d1ee8d97af58efa6213851384e1254f5"
+  },
+  "include/ui/htmltablerangeview.h": {
+    "mtime": 1790950553.4383483,
+    "seen": 1791790807.3335373,
+    "ast_hash": "e5d2b55e02b5688ee1db7ddab9292576",
+    "semantic_hash": "e5d2b55e02b5688ee1db7ddab9292576"
+  },
+  "include/ui/rangeselectortabledelegate.h": {
+    "mtime": 1790950553.4383483,
+    "seen": 1791790807.3335373,
+    "ast_hash": "008738fe5ce5571657cae1f5046b82a9",
+    "semantic_hash": "008738fe5ce5571657cae1f5046b82a9"
+  },
+  "include/ui/rangeselectortablemodel.h": {
+    "mtime": 1790950553.4383483,
+    "seen": 1791790807.3335373,
+    "ast_hash": "a5819d201517796a0bd82bb82581004c",
+    "semantic_hash": "a5819d201517796a0bd82bb82581004c"
+  },
+  "include/ui/roughstrategyitemdelegate.h": {
+    "mtime": 1790950553.4393487,
+    "seen": 1791790807.3335373,
+    "ast_hash": "a961becca85c6a2d2b7d21006cd1e9f0",
+    "semantic_hash": "a961becca85c6a2d2b7d21006cd1e9f0"
+  },
+  "include/ui/roughstrategyviewermodel.h": {
+    "mtime": 1790950553.4393487,
+    "seen": 1791790807.3335373,
+    "ast_hash": "69c337df85684bf1ec6853a1e16b1af1",
+    "semantic_hash": "69c337df85684bf1ec6853a1e16b1af1"
+  },
+  "include/ui/strategyitemdelegate.h": {
+    "mtime": 1790950553.4393487,
+    "seen": 1791790807.3335373,
+    "ast_hash": "4bcf350d4f52e16c7ed09b94768974c9",
+    "semantic_hash": "4bcf350d4f52e16c7ed09b94768974c9"
+  },
+  "include/ui/tablestrategymodel.h": {
+    "mtime": 1790950553.4403484,
+    "seen": 1791790807.3335373,
+    "ast_hash": "3be2a51c3b87c8dd4e8feebf509d89e0",
+    "semantic_hash": "3be2a51c3b87c8dd4e8feebf509d89e0"
+  },
+  "include/ui/treeitem.h": {
+    "mtime": 1790950553.4403484,
+    "seen": 1791790807.3335373,
+    "ast_hash": "0f628b0d4d11fd8f37ed7c28d3467bdd",
+    "semantic_hash": "0f628b0d4d11fd8f37ed7c28d3467bdd"
+  },
+  "include/ui/treemodel.h": {
+    "mtime": 1790950553.4403484,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d2b329a7c2b928b0f62d4b4baa4c89cc",
+    "semantic_hash": "d2b329a7c2b928b0f62d4b4baa4c89cc"
+  },
+  "include/ui/worditemdelegate.h": {
+    "mtime": 1790950553.4413483,
+    "seen": 1791790807.3335373,
+    "ast_hash": "3fdf49bd09614de0e762827190994347",
+    "semantic_hash": "3fdf49bd09614de0e762827190994347"
+  },
+  "lang_cn.ts": {
+    "mtime": 1790950553.4423487,
+    "seen": 1791790807.3335373,
+    "ast_hash": "2f2f66ae33a911584a1ebb0c4fda64a2",
+    "semantic_hash": "2f2f66ae33a911584a1ebb0c4fda64a2"
+  },
+  "lang_en.ts": {
+    "mtime": 1790950553.4428606,
+    "seen": 1791790807.3335373,
+    "ast_hash": "393b07befda14b5bf5b252a889f1b04a",
+    "semantic_hash": "393b07befda14b5bf5b252a889f1b04a"
+  },
+  "main.cpp": {
+    "mtime": 1790950553.4439778,
+    "seen": 1791790807.3335373,
+    "ast_hash": "b84cab1f2e6b4961120b936b8795f040",
+    "semantic_hash": "b84cab1f2e6b4961120b936b8795f040"
+  },
+  "mainwindow.cpp": {
+    "mtime": 1791812909.844239,
+    "seen": 1791813115.0384521,
+    "ast_hash": "7af114abee2aad9ecd7cad0c490ffa26",
+    "semantic_hash": ""
+  },
+  "mainwindow.h": {
+    "mtime": 1791812887.537794,
+    "seen": 1791813115.0384521,
+    "ast_hash": "c302e6c8744a160c523bd60b66289f88",
+    "semantic_hash": ""
+  },
+  "qstextedit.cpp": {
+    "mtime": 1790950553.446054,
+    "seen": 1791790807.3335373,
+    "ast_hash": "96307a3376aa731c104189f9b5fef230",
+    "semantic_hash": "96307a3376aa731c104189f9b5fef230"
+  },
+  "qstextedit.h": {
+    "mtime": 1790950553.446054,
+    "seen": 1791790807.3335373,
+    "ast_hash": "65b8b99d74af7fa4c9419cc67c7403bb",
+    "semantic_hash": "65b8b99d74af7fa4c9419cc67c7403bb"
+  },
+  "qstreeview.cpp": {
+    "mtime": 1791810149.6266255,
+    "seen": 1791812015.6561012,
+    "ast_hash": "2f339b2876e9db5557b17b70da2ec9bb",
+    "semantic_hash": ""
+  },
+  "qstreeview.h": {
+    "mtime": 1791810138.7330437,
+    "seen": 1791812015.6561012,
+    "ast_hash": "5ff21d94bc90df3fedf051a4336348d8",
+    "semantic_hash": ""
+  },
+  "rangeselector.cpp": {
+    "mtime": 1790950553.447021,
+    "seen": 1791790807.3335373,
+    "ast_hash": "cd268f7baa43fbe6e2e76082f89fe548",
+    "semantic_hash": "cd268f7baa43fbe6e2e76082f89fe548"
+  },
+  "rangeselector.h": {
+    "mtime": 1790950553.448021,
+    "seen": 1791790807.3335373,
+    "ast_hash": "5fca161b96bd660cc57172c739d3acc1",
+    "semantic_hash": "5fca161b96bd660cc57172c739d3acc1"
+  },
+  "resources/bash/replace.sh": {
+    "mtime": 1790950553.4487803,
+    "seen": 1791790807.3335373,
+    "ast_hash": "f814659e40927705a92bcbb4f0dac319",
+    "semantic_hash": "f814659e40927705a92bcbb4f0dac319"
+  },
+  "resources/bash/riversolver.sh": {
+    "mtime": 1790950553.4498594,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d6701292c3501366f9c62dd863be05fb",
+    "semantic_hash": "d6701292c3501366f9c62dd863be05fb"
+  },
+  "resources/ffi_api/python_ctypes.py": {
+    "mtime": 1790950553.699002,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d96bd59942352415083b61a027cf4ab8",
+    "semantic_hash": "d96bd59942352415083b61a027cf4ab8"
+  },
+  "resources/outputs/outputs_strategy.json": {
+    "mtime": 1790950553.835236,
+    "seen": 1791790807.3335373,
+    "ast_hash": "",
+    "semantic_hash": ""
+  },
+  "resources/python/TreeBuilder.py": {
+    "mtime": 1790950553.8386612,
+    "seen": 1791790807.3335373,
+    "ast_hash": "147d8e732522818eb64ba2ff21b153d9",
+    "semantic_hash": "147d8e732522818eb64ba2ff21b153d9"
+  },
+  "resources/python/__init__.py": {
+    "mtime": 1790950553.8386612,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "resources/python/test.py": {
+    "mtime": 1790950553.8386612,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d7d13013b342d308d98fcb386f07b18b",
+    "semantic_hash": "d7d13013b342d308d98fcb386f07b18b"
+  },
+  "settingeditor.cpp": {
+    "mtime": 1790950553.844628,
+    "seen": 1791790807.3335373,
+    "ast_hash": "59d18b59f999f43514e3457ad0227396",
+    "semantic_hash": "59d18b59f999f43514e3457ad0227396"
+  },
+  "settingeditor.h": {
+    "mtime": 1790950553.8456278,
+    "seen": 1791790807.3335373,
+    "ast_hash": "33af8007193ea3435131d04da5c3b666",
+    "semantic_hash": "33af8007193ea3435131d04da5c3b666"
+  },
+  "src/Card.cpp": {
+    "mtime": 1791807511.2591412,
+    "seen": 1791812015.6585834,
+    "ast_hash": "72f579eb8f273131b285472e1cf2dcff",
+    "semantic_hash": ""
+  },
+  "src/Card.h": {
+    "mtime": 1791807546.3249028,
+    "seen": 1791812015.6585834,
+    "ast_hash": "2d67f68aae9c3fdd26675176ac07c428",
+    "semantic_hash": ""
+  },
+  "src/Deck.cpp": {
+    "mtime": 1791807870.6387508,
+    "seen": 1791812015.6585834,
+    "ast_hash": "345399ee2005d1e0af8be158cba8f728",
+    "semantic_hash": ""
+  },
+  "src/Deck.h": {
+    "mtime": 1791807899.3402028,
+    "seen": 1791812015.6585834,
+    "ast_hash": "502ed97ae368b621fda98fd564ff57c1",
+    "semantic_hash": ""
+  },
+  "src/GameTree.cpp": {
+    "mtime": 1790950553.8486288,
+    "seen": 1791790807.3335373,
+    "ast_hash": "6251a45d0daad2f44cb939bdc258a405",
+    "semantic_hash": "6251a45d0daad2f44cb939bdc258a405"
+  },
+  "src/GameTree.h": {
+    "mtime": 1790950553.8486288,
+    "seen": 1791790807.3335373,
+    "ast_hash": "3fb40f4e9396576f91f29027d2945b21",
+    "semantic_hash": "3fb40f4e9396576f91f29027d2945b21"
+  },
+  "src/api.cpp": {
+    "mtime": 1790950553.8497088,
+    "seen": 1791790807.3335373,
+    "ast_hash": "9f9e8df404f1dfa273d1a0444e6182eb",
+    "semantic_hash": "9f9e8df404f1dfa273d1a0444e6182eb"
+  },
+  "src/compairer/Compairer.h": {
+    "mtime": 1790950553.8497088,
+    "seen": 1791790807.3335373,
+    "ast_hash": "0e9edbe91365470603b3073da283d1e6",
+    "semantic_hash": "0e9edbe91365470603b3073da283d1e6"
+  },
+  "src/compairer/Dic5Compairer.cpp": {
+    "mtime": 1791790358.7912424,
+    "seen": 1791790807.3335373,
+    "ast_hash": "f6e73f805b8eebecbe8931e1c7a75f47",
+    "semantic_hash": "f6e73f805b8eebecbe8931e1c7a75f47"
+  },
+  "src/compairer/Dic5Compairer.h": {
+    "mtime": 1790950553.8507147,
+    "seen": 1791790807.3335373,
+    "ast_hash": "a2ca2f5137d9c3df0c5529f9d5aa2931",
+    "semantic_hash": "a2ca2f5137d9c3df0c5529f9d5aa2931"
+  },
+  "src/console.cpp": {
+    "mtime": 1790950553.8507147,
+    "seen": 1791790807.3335373,
+    "ast_hash": "c3836900c253602cb00e788986a3e1a7",
+    "semantic_hash": "c3836900c253602cb00e788986a3e1a7"
+  },
+  "src/experimental/TCfrSolver.cpp": {
+    "mtime": 1790950553.8522196,
+    "seen": 1791790807.3335373,
+    "ast_hash": "542a2986d958db46c155b1dedaf62806",
+    "semantic_hash": "542a2986d958db46c155b1dedaf62806"
+  },
+  "src/experimental/TCfrSolver.h": {
+    "mtime": 1790950553.8522196,
+    "seen": 1791790807.3335373,
+    "ast_hash": "34c1452a7a55c73a7f5dcf85cdb0be5a",
+    "semantic_hash": "34c1452a7a55c73a7f5dcf85cdb0be5a"
+  },
+  "src/library.cpp": {
+    "mtime": 1790950553.8522196,
+    "seen": 1791790807.3335373,
+    "ast_hash": "01e89960d05e9233e18d5ae5f07c1632",
+    "semantic_hash": "01e89960d05e9233e18d5ae5f07c1632"
+  },
+  "src/library.h": {
+    "mtime": 1790950553.8532593,
+    "seen": 1791790807.3335373,
+    "ast_hash": "8a637df7714c2361a23f3d788aadb2f0",
+    "semantic_hash": "8a637df7714c2361a23f3d788aadb2f0"
+  },
+  "src/nodes/ActionNode.cpp": {
+    "mtime": 1790950553.8532593,
+    "seen": 1791790807.3335373,
+    "ast_hash": "191421183b69a997d6c7efd8fdf0cdfe",
+    "semantic_hash": "191421183b69a997d6c7efd8fdf0cdfe"
+  },
+  "src/nodes/ActionNode.h": {
+    "mtime": 1790950553.8542566,
+    "seen": 1791790807.3335373,
+    "ast_hash": "15c5d436ea4f69c5609552105cbf80b7",
+    "semantic_hash": "15c5d436ea4f69c5609552105cbf80b7"
+  },
+  "src/nodes/ChanceNode.cpp": {
+    "mtime": 1790950553.8542566,
+    "seen": 1791790807.3335373,
+    "ast_hash": "b9f545c86163b6f95ab0b7f1c7b84f9a",
+    "semantic_hash": "b9f545c86163b6f95ab0b7f1c7b84f9a"
+  },
+  "src/nodes/ChanceNode.h": {
+    "mtime": 1790950553.8552518,
+    "seen": 1791790807.3335373,
+    "ast_hash": "beeeb1be9d5e9a0a1cdb92cde9a0022e",
+    "semantic_hash": "beeeb1be9d5e9a0a1cdb92cde9a0022e"
+  },
+  "src/nodes/GameActions.cpp": {
+    "mtime": 1790950553.8552518,
+    "seen": 1791790807.3335373,
+    "ast_hash": "c4f1925be31d5a2c9ed3d6edecb11af1",
+    "semantic_hash": "c4f1925be31d5a2c9ed3d6edecb11af1"
+  },
+  "src/nodes/GameActions.h": {
+    "mtime": 1790950553.8562255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "229d08dfdafdd72cdbdd3683c7a17b12",
+    "semantic_hash": "229d08dfdafdd72cdbdd3683c7a17b12"
+  },
+  "src/nodes/GameTreeNode.cpp": {
+    "mtime": 1790950553.8562255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "c4dbd2a1642d4f921b83a0914f1eb475",
+    "semantic_hash": "c4dbd2a1642d4f921b83a0914f1eb475"
+  },
+  "src/nodes/GameTreeNode.h": {
+    "mtime": 1790950553.8562255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "02b1c9440f6c169c61c1aefe0c7f17a4",
+    "semantic_hash": "02b1c9440f6c169c61c1aefe0c7f17a4"
+  },
+  "src/nodes/ShowdownNode.cpp": {
+    "mtime": 1790950553.8572254,
+    "seen": 1791790807.3335373,
+    "ast_hash": "b703ed5a1174db428da9c789a011e35f",
+    "semantic_hash": "b703ed5a1174db428da9c789a011e35f"
+  },
+  "src/nodes/ShowdownNode.h": {
+    "mtime": 1790950553.8572254,
+    "seen": 1791790807.3335373,
+    "ast_hash": "ff0b802bb11d9dbb8790075c7f095b72",
+    "semantic_hash": "ff0b802bb11d9dbb8790075c7f095b72"
+  },
+  "src/nodes/TerminalNode.cpp": {
+    "mtime": 1790950553.8572254,
+    "seen": 1791790807.3335373,
+    "ast_hash": "38c189fb6988cd16913444b9f94c243b",
+    "semantic_hash": "38c189fb6988cd16913444b9f94c243b"
+  },
+  "src/nodes/TerminalNode.h": {
+    "mtime": 1790950553.8582256,
+    "seen": 1791790807.3335373,
+    "ast_hash": "bf13a1aaad347c24e8e1ad188980394c",
+    "semantic_hash": "bf13a1aaad347c24e8e1ad188980394c"
+  },
+  "src/pybind/bindSolver.cpp": {
+    "mtime": 1790950553.8582256,
+    "seen": 1791790807.3335373,
+    "ast_hash": "84ee65221e5ead422c60d3f27abb21e9",
+    "semantic_hash": "84ee65221e5ead422c60d3f27abb21e9"
+  },
+  "src/ranges/PrivateCards.cpp": {
+    "mtime": 1790950553.859225,
+    "seen": 1791790807.3335373,
+    "ast_hash": "3e4e6c3d7eb17247fc23f5b7f163592d",
+    "semantic_hash": "3e4e6c3d7eb17247fc23f5b7f163592d"
+  },
+  "src/ranges/PrivateCards.h": {
+    "mtime": 1790950553.8602412,
+    "seen": 1791790807.3335373,
+    "ast_hash": "5f512e36eed8643c9c4a88e21ab6e433",
+    "semantic_hash": "5f512e36eed8643c9c4a88e21ab6e433"
+  },
+  "src/ranges/PrivateCardsManager.cpp": {
+    "mtime": 1790950553.8602412,
+    "seen": 1791790807.3335373,
+    "ast_hash": "573b53f4852e1f3ae7dafe0e70f1e8ef",
+    "semantic_hash": "573b53f4852e1f3ae7dafe0e70f1e8ef"
+  },
+  "src/ranges/PrivateCardsManager.h": {
+    "mtime": 1790950553.8612394,
+    "seen": 1791790807.3335373,
+    "ast_hash": "7e5fa5769800054e9881525a1b37fa0f",
+    "semantic_hash": "7e5fa5769800054e9881525a1b37fa0f"
+  },
+  "src/ranges/RiverCombs.cpp": {
+    "mtime": 1790950553.8612394,
+    "seen": 1791790807.3335373,
+    "ast_hash": "77623e15e402b3c8acb27a75a4f02dd4",
+    "semantic_hash": "77623e15e402b3c8acb27a75a4f02dd4"
+  },
+  "src/ranges/RiverCombs.h": {
+    "mtime": 1790950553.8612394,
+    "seen": 1791790807.3335373,
+    "ast_hash": "2086562b22899cf5d2f8625a519e0b15",
+    "semantic_hash": "2086562b22899cf5d2f8625a519e0b15"
+  },
+  "src/ranges/RiverRangeManager.cpp": {
+    "mtime": 1790950553.8622255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "7e62cf33f990fc6818a63285ff59887a",
+    "semantic_hash": "7e62cf33f990fc6818a63285ff59887a"
+  },
+  "src/ranges/RiverRangeManager.h": {
+    "mtime": 1790950553.8622255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d1bd953e3443be4927ea083a09c6c5ed",
+    "semantic_hash": "d1bd953e3443be4927ea083a09c6c5ed"
+  },
+  "src/runtime/PokerSolver.cpp": {
+    "mtime": 1790950553.8632255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "e6ded6769d104e443c019f224247188a",
+    "semantic_hash": "e6ded6769d104e443c019f224247188a"
+  },
+  "src/runtime/PokerSolver.h": {
+    "mtime": 1791807451.823224,
+    "seen": 1791812015.6656208,
+    "ast_hash": "540e1f36a3a20d48f8d3a0e558e1f26e",
+    "semantic_hash": ""
+  },
+  "src/runtime/qsolverjob.cpp": {
+    "mtime": 1790950553.864226,
+    "seen": 1791790807.3335373,
+    "ast_hash": "7d9e3867c522f1434c45dbb70edc38b6",
+    "semantic_hash": "7d9e3867c522f1434c45dbb70edc38b6"
+  },
+  "src/runtime/qsolverjob.h": {
+    "mtime": 1790950553.864226,
+    "seen": 1791790807.3335373,
+    "ast_hash": "f53e4b7a7e57c5a51e963a0f2b5af5b0",
+    "semantic_hash": "f53e4b7a7e57c5a51e963a0f2b5af5b0"
+  },
+  "src/solver/BestResponse.cpp": {
+    "mtime": 1791788741.3803415,
+    "seen": 1791790807.3335373,
+    "ast_hash": "84a1d426e88da5bccec7b166ce249e5a",
+    "semantic_hash": "84a1d426e88da5bccec7b166ce249e5a"
+  },
+  "src/solver/BestResponse.h": {
+    "mtime": 1790950553.8652256,
+    "seen": 1791790807.3335373,
+    "ast_hash": "4d1d0f07537fed5a3fbe1e66425b56fc",
+    "semantic_hash": "4d1d0f07537fed5a3fbe1e66425b56fc"
+  },
+  "src/solver/CfrSolver.cpp": {
+    "mtime": 1790950553.8662255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "ccf68d3c3e619c530a3c0fa037180412",
+    "semantic_hash": "ccf68d3c3e619c530a3c0fa037180412"
+  },
+  "src/solver/CfrSolver.h": {
+    "mtime": 1790950553.8662255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "547e44ea272cc80e1c85b28b234c1a7b",
+    "semantic_hash": "547e44ea272cc80e1c85b28b234c1a7b"
+  },
+  "src/solver/PCfrSolver.cpp": {
+    "mtime": 1791788753.8253825,
+    "seen": 1791790807.3335373,
+    "ast_hash": "21f59bfe5d660c05d971e021a2822022",
+    "semantic_hash": "21f59bfe5d660c05d971e021a2822022"
+  },
+  "src/solver/PCfrSolver.h": {
+    "mtime": 1790950553.867226,
+    "seen": 1791790807.3335373,
+    "ast_hash": "9410373a803486c72fe3a026179bb253",
+    "semantic_hash": "9410373a803486c72fe3a026179bb253"
+  },
+  "src/solver/Solver.cpp": {
+    "mtime": 1790950553.8682253,
+    "seen": 1791790807.3335373,
+    "ast_hash": "046e01676cc8d8a248ea01ba3e5cb589",
+    "semantic_hash": "046e01676cc8d8a248ea01ba3e5cb589"
+  },
+  "src/solver/Solver.h": {
+    "mtime": 1790950553.8682253,
+    "seen": 1791790807.3335373,
+    "ast_hash": "5f53264fb55488947d9d66c732a7edf7",
+    "semantic_hash": "5f53264fb55488947d9d66c732a7edf7"
+  },
+  "src/tools/CommandLineTool.cpp": {
+    "mtime": 1790950553.8692257,
+    "seen": 1791790807.3335373,
+    "ast_hash": "a89fab68779557e5be748f62c64bca30",
+    "semantic_hash": "a89fab68779557e5be748f62c64bca30"
+  },
+  "src/tools/CommandLineTool.h": {
+    "mtime": 1790950553.8692257,
+    "seen": 1791790807.3335373,
+    "ast_hash": "518f1a38b24513351304f8ba4efbb6bd",
+    "semantic_hash": "518f1a38b24513351304f8ba4efbb6bd"
+  },
+  "src/tools/GameTreeBuildingSettings.cpp": {
+    "mtime": 1790950553.8702285,
+    "seen": 1791790807.3335373,
+    "ast_hash": "5fd5a1087aebb46979eab683e40c627e",
+    "semantic_hash": "5fd5a1087aebb46979eab683e40c627e"
+  },
+  "src/tools/GameTreeBuildingSettings.h": {
+    "mtime": 1790950553.8702285,
+    "seen": 1791790807.3335373,
+    "ast_hash": "310b29125c3e2a67a0bfdbfb7a26fe20",
+    "semantic_hash": "310b29125c3e2a67a0bfdbfb7a26fe20"
+  },
+  "src/tools/PrivateRangeConverter.cpp": {
+    "mtime": 1790950553.8702285,
+    "seen": 1791790807.3335373,
+    "ast_hash": "8803cc9e30a18929c8428267f8aa9c39",
+    "semantic_hash": "8803cc9e30a18929c8428267f8aa9c39"
+  },
+  "src/tools/PrivateRangeConverter.h": {
+    "mtime": 1790950553.8712254,
+    "seen": 1791790807.3335373,
+    "ast_hash": "21c01eb73584892d816975b8dac51f58",
+    "semantic_hash": "21c01eb73584892d816975b8dac51f58"
+  },
+  "src/tools/Rule.cpp": {
+    "mtime": 1790950553.8712254,
+    "seen": 1791790807.3335373,
+    "ast_hash": "7e67a67b60d45c69a779ce6c59562757",
+    "semantic_hash": "7e67a67b60d45c69a779ce6c59562757"
+  },
+  "src/tools/Rule.h": {
+    "mtime": 1790950553.8722253,
+    "seen": 1791790807.3335373,
+    "ast_hash": "8f9a1011bdf1103f9a8f96dd3ac63cbb",
+    "semantic_hash": "8f9a1011bdf1103f9a8f96dd3ac63cbb"
+  },
+  "src/tools/StreetSetting.cpp": {
+    "mtime": 1790950553.8722253,
+    "seen": 1791790807.3335373,
+    "ast_hash": "5cce88a2fddbbd14ee842f2d5f67f83e",
+    "semantic_hash": "5cce88a2fddbbd14ee842f2d5f67f83e"
+  },
+  "src/tools/StreetSetting.h": {
+    "mtime": 1790950553.8722253,
+    "seen": 1791790807.3335373,
+    "ast_hash": "ee3aada149bd50d285d63a5f73d19430",
+    "semantic_hash": "ee3aada149bd50d285d63a5f73d19430"
+  },
+  "src/tools/lookup8.cpp": {
+    "mtime": 1790950553.8732255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "cf145de4a25680a3ef2371043249ef11",
+    "semantic_hash": "cf145de4a25680a3ef2371043249ef11"
+  },
+  "src/tools/lookup8.h": {
+    "mtime": 1790950553.8732255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "ae3bc7b6f461b7e012402e47bc21824f",
+    "semantic_hash": "ae3bc7b6f461b7e012402e47bc21824f"
+  },
+  "src/tools/progressbar.cpp": {
+    "mtime": 1790950553.8732255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "9a62b6cb47d69e5744b024500ce3a83c",
+    "semantic_hash": "9a62b6cb47d69e5744b024500ce3a83c"
+  },
+  "src/tools/progressbar.h": {
+    "mtime": 1790950553.8742256,
+    "seen": 1791790807.3335373,
+    "ast_hash": "610f4dbf0f18f286710846d67ed76c73",
+    "semantic_hash": "610f4dbf0f18f286710846d67ed76c73"
+  },
+  "src/tools/qdebugstream.h": {
+    "mtime": 1790950553.8742256,
+    "seen": 1791790807.3335373,
+    "ast_hash": "96631a933df18cb8e90458969d5630b8",
+    "semantic_hash": "96631a933df18cb8e90458969d5630b8"
+  },
+  "src/tools/utils.cpp": {
+    "mtime": 1790950553.8752255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "84c4a4684bf0ce245a063d16aaf28773",
+    "semantic_hash": "84c4a4684bf0ce245a063d16aaf28773"
+  },
+  "src/tools/utils.h": {
+    "mtime": 1790950553.8752255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "6fea0b49b248824373d453a09627677d",
+    "semantic_hash": "6fea0b49b248824373d453a09627677d"
+  },
+  "src/trainable/CfrPlusTrainable.cpp": {
+    "mtime": 1790950553.8762257,
+    "seen": 1791790807.3335373,
+    "ast_hash": "6d9ef0dcca5765def52fee3d7013f53e",
+    "semantic_hash": "6d9ef0dcca5765def52fee3d7013f53e"
+  },
+  "src/trainable/CfrPlusTrainable.h": {
+    "mtime": 1790950553.8762257,
+    "seen": 1791790807.3335373,
+    "ast_hash": "054769fb43ce8f66de75459f61dbcf0c",
+    "semantic_hash": "054769fb43ce8f66de75459f61dbcf0c"
+  },
+  "src/trainable/DiscountedCfrTrainable.cpp": {
+    "mtime": 1790950553.8772252,
+    "seen": 1791790807.3335373,
+    "ast_hash": "71271dc3d8a1c92b67c363cd97855107",
+    "semantic_hash": "71271dc3d8a1c92b67c363cd97855107"
+  },
+  "src/trainable/DiscountedCfrTrainable.h": {
+    "mtime": 1790950553.8772252,
+    "seen": 1791790807.3335373,
+    "ast_hash": "2fcf672267d948431e47ed0d4db4b14f",
+    "semantic_hash": "2fcf672267d948431e47ed0d4db4b14f"
+  },
+  "src/trainable/DiscountedCfrTrainableHF.cpp": {
+    "mtime": 1790950553.8772252,
+    "seen": 1791790807.3335373,
+    "ast_hash": "a2c0430a2ea343ec82005636fc09f16c",
+    "semantic_hash": "a2c0430a2ea343ec82005636fc09f16c"
+  },
+  "src/trainable/DiscountedCfrTrainableHF.h": {
+    "mtime": 1790950553.878225,
+    "seen": 1791790807.3335373,
+    "ast_hash": "6e5b2beafffbb4b33111b2495a2d6522",
+    "semantic_hash": "6e5b2beafffbb4b33111b2495a2d6522"
+  },
+  "src/trainable/DiscountedCfrTrainableSF.cpp": {
+    "mtime": 1790950553.878225,
+    "seen": 1791790807.3335373,
+    "ast_hash": "494ba834fa177693b2e82bac5ae00d35",
+    "semantic_hash": "494ba834fa177693b2e82bac5ae00d35"
+  },
+  "src/trainable/DiscountedCfrTrainableSF.h": {
+    "mtime": 1790950553.8792253,
+    "seen": 1791790807.3335373,
+    "ast_hash": "8cf3cef1556d362d7a8d0219265d197a",
+    "semantic_hash": "8cf3cef1556d362d7a8d0219265d197a"
+  },
+  "src/trainable/Trainable.cpp": {
+    "mtime": 1790950553.8792253,
+    "seen": 1791790807.3335373,
+    "ast_hash": "c9be970ec2c9f320c69d97e59f220380",
+    "semantic_hash": "c9be970ec2c9f320c69d97e59f220380"
+  },
+  "src/trainable/Trainable.h": {
+    "mtime": 1790950553.8792253,
+    "seen": 1791790807.3335373,
+    "ast_hash": "8dcfdca668c38e82d8914089f9b69137",
+    "semantic_hash": "8dcfdca668c38e82d8914089f9b69137"
+  },
+  "src/ui/boardselectortabledelegate.cpp": {
+    "mtime": 1790950553.8802257,
+    "seen": 1791790807.3335373,
+    "ast_hash": "d72563611baa0e0a458ef9c5851acc66",
+    "semantic_hash": "d72563611baa0e0a458ef9c5851acc66"
+  },
+  "src/ui/boardselectortabledelegate.h": {
+    "mtime": 1790950553.8802257,
+    "seen": 1791790807.3335373,
+    "ast_hash": "c662fb823aa59dc819ec7d81e4431b7e",
+    "semantic_hash": "c662fb823aa59dc819ec7d81e4431b7e"
+  },
+  "src/ui/boardselectortablemodel.cpp": {
+    "mtime": 1790950553.881225,
+    "seen": 1791790807.3335373,
+    "ast_hash": "a11f96ac576748e5fafc7089b1b95636",
+    "semantic_hash": "a11f96ac576748e5fafc7089b1b95636"
+  },
+  "src/ui/boardselectortablemodel.h": {
+    "mtime": 1790950553.881225,
+    "seen": 1791790807.3335373,
+    "ast_hash": "fd42ba43777849555188684c33f41566",
+    "semantic_hash": "fd42ba43777849555188684c33f41566"
+  },
+  "src/ui/detailitemdelegate.cpp": {
+    "mtime": 1791811945.057697,
+    "seen": 1791812015.674189,
+    "ast_hash": "85015056d77f47d608ecbc418f63db0b",
+    "semantic_hash": ""
+  },
+  "src/ui/detailitemdelegate.h": {
+    "mtime": 1791811889.8987093,
+    "seen": 1791812015.674189,
+    "ast_hash": "2c2749b9fa03ca0a3430842291436aa9",
+    "semantic_hash": ""
+  },
+  "src/ui/detailviewermodel.cpp": {
+    "mtime": 1790950553.883226,
+    "seen": 1791790807.3335373,
+    "ast_hash": "249c27b560528b781b6c575dd4f6c6be",
+    "semantic_hash": "249c27b560528b781b6c575dd4f6c6be"
+  },
+  "src/ui/detailviewermodel.h": {
+    "mtime": 1791811947.350882,
+    "seen": 1791812015.6751606,
+    "ast_hash": "80d1103422a9c4e0fa5f57f320c0d39a",
+    "semantic_hash": ""
+  },
+  "src/ui/detailwindowsetting.cpp": {
+    "mtime": 1790950553.883226,
+    "seen": 1791790807.3335373,
+    "ast_hash": "cacf9be1a3c804eed9d8a7dd4cecc36a",
+    "semantic_hash": "cacf9be1a3c804eed9d8a7dd4cecc36a"
+  },
+  "src/ui/detailwindowsetting.h": {
+    "mtime": 1790950553.8842254,
+    "seen": 1791790807.3335373,
+    "ast_hash": "1a22abaca98b3f84ed35c9dc6ebe753c",
+    "semantic_hash": "1a22abaca98b3f84ed35c9dc6ebe753c"
+  },
+  "src/ui/droptextedit.cpp": {
+    "mtime": 1790950553.8842254,
+    "seen": 1791790807.3335373,
+    "ast_hash": "a91e0d78f1613324876ac60a2e3dcf46",
+    "semantic_hash": "a91e0d78f1613324876ac60a2e3dcf46"
+  },
+  "src/ui/droptextedit.h": {
+    "mtime": 1790950553.8852255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "2c4cabf2c87c39508917493d05f22931",
+    "semantic_hash": "2c4cabf2c87c39508917493d05f22931"
+  },
+  "src/ui/htmltablerangeview.cpp": {
+    "mtime": 1790950553.8852255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "c3cae2c0754937a0d172e33fe1430394",
+    "semantic_hash": "c3cae2c0754937a0d172e33fe1430394"
+  },
+  "src/ui/htmltablerangeview.h": {
+    "mtime": 1790950553.8852255,
+    "seen": 1791790807.3335373,
+    "ast_hash": "4aebe0fa02984dd07a4e53a01a59ffda",
+    "semantic_hash": "4aebe0fa02984dd07a4e53a01a59ffda"
+  },
+  "src/ui/rangeselectortabledelegate.cpp": {
+    "mtime": 1790950553.8863485,
+    "seen": 1791790807.3335373,
+    "ast_hash": "e57250f3f935e866a7cb94cfd965c778",
+    "semantic_hash": "e57250f3f935e866a7cb94cfd965c778"
+  },
+  "src/ui/rangeselectortabledelegate.h": {
+    "mtime": 1790950553.8863485,
+    "seen": 1791790807.3335373,
+    "ast_hash": "15e5d1834416267f4e2eb2973962e75b",
+    "semantic_hash": "15e5d1834416267f4e2eb2973962e75b"
+  },
+  "src/ui/rangeselectortablemodel.cpp": {
+    "mtime": 1790950553.8873503,
+    "seen": 1791790807.3335373,
+    "ast_hash": "5df74f05088a12a39bcfcb63b8ffb8df",
+    "semantic_hash": "5df74f05088a12a39bcfcb63b8ffb8df"
+  },
+  "src/ui/rangeselectortablemodel.h": {
+    "mtime": 1790950553.8873503,
+    "seen": 1791790807.3335373,
+    "ast_hash": "5362a06dc95c8f359d698efd2453d498",
+    "semantic_hash": "5362a06dc95c8f359d698efd2453d498"
+  },
+  "src/ui/roughstrategyitemdelegate.cpp": {
+    "mtime": 1791811886.806801,
+    "seen": 1791812015.6771886,
+    "ast_hash": "714d7aa05e2d43315b4eedf3c8869cc1",
+    "semantic_hash": ""
+  },
+  "src/ui/roughstrategyitemdelegate.h": {
+    "mtime": 1791811873.671027,
+    "seen": 1791812015.6771886,
+    "ast_hash": "a37b848338f3bfdd730a6b99e2800a36",
+    "semantic_hash": ""
+  },
+  "src/ui/roughstrategyviewermodel.cpp": {
+    "mtime": 1791811895.6532671,
+    "seen": 1791812015.6771886,
+    "ast_hash": "4ec8d30553cc9d48ace3b447ab4aa6f8",
+    "semantic_hash": ""
+  },
+  "src/ui/roughstrategyviewermodel.h": {
+    "mtime": 1791811892.1419578,
+    "seen": 1791812015.6771886,
+    "ast_hash": "305f0732bd9e5fb1dc99f010f2ce506d",
+    "semantic_hash": ""
+  },
+  "src/ui/strategyitemdelegate.cpp": {
+    "mtime": 1791811817.1159954,
+    "seen": 1791812015.6771886,
+    "ast_hash": "df8c239fa07df4c7a4855a8a95acf05b",
+    "semantic_hash": ""
+  },
+  "src/ui/strategyitemdelegate.h": {
+    "mtime": 1791811791.1872694,
+    "seen": 1791812015.6771886,
+    "ast_hash": "d032b49df0d1d5f5873600015470b513",
+    "semantic_hash": ""
+  },
+  "src/ui/tablestrategymodel.cpp": {
+    "mtime": 1791812866.4739978,
+    "seen": 1791813115.0615463,
+    "ast_hash": "a1be3cf2c6d89122c1d1a4287a39f943",
+    "semantic_hash": ""
+  },
+  "src/ui/tablestrategymodel.h": {
+    "mtime": 1791812847.8889263,
+    "seen": 1791813115.0615463,
+    "ast_hash": "9a104d80eaa2aa7a94f2cd20abb59855",
+    "semantic_hash": ""
+  },
+  "src/ui/treeitem.cpp": {
+    "mtime": 1791810090.1346934,
+    "seen": 1791812015.6771886,
+    "ast_hash": "59f90c913d639be48f35054d28cf4b77",
+    "semantic_hash": ""
+  },
+  "src/ui/treeitem.h": {
+    "mtime": 1791810079.311704,
+    "seen": 1791812015.6771886,
+    "ast_hash": "ecd2b7af65a2cc49a64510322e89ccf8",
+    "semantic_hash": ""
+  },
+  "src/ui/treemodel.cpp": {
+    "mtime": 1791810124.094231,
+    "seen": 1791812015.6771886,
+    "ast_hash": "ab8bbc0c65421120c0094562c31eeb5d",
+    "semantic_hash": ""
+  },
+  "src/ui/treemodel.h": {
+    "mtime": 1791810104.323473,
+    "seen": 1791812015.6771886,
+    "ast_hash": "84fae6554df207c2e5cf3e8fcb4a5623",
+    "semantic_hash": ""
+  },
+  "src/ui/worditemdelegate.cpp": {
+    "mtime": 1790950553.892317,
+    "seen": 1791790807.3335373,
+    "ast_hash": "cc68b7c87a0c7a0f05cb15d135442c08",
+    "semantic_hash": "cc68b7c87a0c7a0f05cb15d135442c08"
+  },
+  "src/ui/worditemdelegate.h": {
+    "mtime": 1790950553.8933177,
+    "seen": 1791790807.3335373,
+    "ast_hash": "b7481e31a5d2b2eaca3906e903f34447",
+    "semantic_hash": "b7481e31a5d2b2eaca3906e903f34447"
+  },
+  "strategyexplorer.cpp": {
+    "mtime": 1791811785.7860672,
+    "seen": 1791812015.6771886,
+    "ast_hash": "21aff0c4e612a45e0c05b8b4a0c48426",
+    "semantic_hash": ""
+  },
+  "strategyexplorer.h": {
+    "mtime": 1791811775.102757,
+    "seen": 1791812015.6771886,
+    "ast_hash": "8a39365f8b2d4e62ea65caf4b68ea22a",
+    "semantic_hash": ""
+  },
+  "include/api/isolver_backend.h": {
+    "mtime": 1791811766.7021296,
+    "seen": 1791812015.643526,
+    "ast_hash": "69aa461abcb9396b312367fa055d31a1",
+    "semantic_hash": ""
+  },
+  "include/api/solver_dtos.h": {
+    "mtime": 1791812801.4721503,
+    "seen": 1791813115.0262992,
+    "ast_hash": "519f3948a569caac85dda5cdc01410c0",
+    "semantic_hash": ""
+  },
+  ".github/workflows/main.yml": {
+    "mtime": 1790950553.316404,
+    "seen": 1791800158.3950503,
+    "ast_hash": "bc1ce026f781b51804f60202b3305d03",
+    "semantic_hash": ""
+  },
+  "CMakeLists.txt": {
+    "mtime": 1791805413.4016473,
+    "seen": 1791812015.6771886,
+    "ast_hash": "798f4de8fd6200f72d965282d21d4d5d",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1790950553.3204017,
+    "seen": 1791800158.3950503,
+    "ast_hash": "07f0cb711642b59b875d74caa7999177",
+    "semantic_hash": ""
+  },
+  "README.zh-CN.md": {
+    "mtime": 1790950553.3214462,
+    "seen": 1791800158.3950503,
+    "ast_hash": "ea69b5a28f4db889909116de919510de",
+    "semantic_hash": ""
+  },
+  "benchmark/benchmark_outputs/piosolver_log.txt": {
+    "mtime": 1790950553.3223999,
+    "seen": 1791800158.3950503,
+    "ast_hash": "873dce924e2374179b31d6d9cfdf56f1",
+    "semantic_hash": ""
+  },
+  "benchmark/benchmark_outputs/texassolver_log.txt": {
+    "mtime": 1790950553.3244345,
+    "seen": 1791800158.3950503,
+    "ast_hash": "72031ad9f8c60837d10cbfe22a14a7a1",
+    "semantic_hash": ""
+  },
+  "benchmark/benchmark_piosolver.txt": {
+    "mtime": 1790950553.3252895,
+    "seen": 1791800158.3950503,
+    "ast_hash": "17a378a624d66c5497cbdd1f36d6a17e",
+    "semantic_hash": ""
+  },
+  "benchmark/benchmark_texassolver.txt": {
+    "mtime": 1790950553.3252895,
+    "seen": 1791800158.3950503,
+    "ast_hash": "4b4084d7b21a63b1af3de9a61561ade7",
+    "semantic_hash": ""
+  },
+  "licensed_list.txt": {
+    "mtime": 1790950553.4439778,
+    "seen": 1791800158.3950503,
+    "ast_hash": "e89a46d76d935c243117e4227809f778",
+    "semantic_hash": ""
+  },
+  "resources/compairer/card5_dic_sorted.txt": {
+    "mtime": 1790950553.6584332,
+    "seen": 1791800158.3950503,
+    "ast_hash": "caa2d67575708e9a092158d4680a4fbd",
+    "semantic_hash": ""
+  },
+  "resources/compairer/card5_dic_sorted_shortdeck.txt": {
+    "mtime": 1790950553.6939707,
+    "seen": 1791800158.3950503,
+    "ast_hash": "701f0b85e7889bfaaaeb9aaa33fad5a3",
+    "semantic_hash": ""
+  },
+  "resources/ffi_api/README.MD": {
+    "mtime": 1790950553.6979997,
+    "seen": 1791800158.3950503,
+    "ast_hash": "4f7b201d99f48ec4380bb68c5cebe778",
+    "semantic_hash": ""
+  },
+  "resources/outputs/outputs_log.txt": {
+    "mtime": 1790950553.7020578,
+    "seen": 1791800158.3950503,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "resources/text/commandline_sample_input.txt": {
+    "mtime": 1790950553.8396277,
+    "seen": 1791800158.3950503,
+    "ast_hash": "b203d75e9cf7ae47ff73069f064b766a",
+    "semantic_hash": ""
+  },
+  "resources/text/commandline_sample_input_shortdeck.txt": {
+    "mtime": 1790950553.8396277,
+    "seen": 1791800158.3950503,
+    "ast_hash": "a3c8c515b02383e5ded972a1e1767b39",
+    "semantic_hash": ""
+  },
+  "resources/yamls/general_rule.yaml": {
+    "mtime": 1790950553.841628,
+    "seen": 1791800158.3950503,
+    "ast_hash": "2df6f83e5ed3938b419158ed721d9476",
+    "semantic_hash": ""
+  },
+  "resources/yamls/rule_generated_game.yaml": {
+    "mtime": 1790950553.841628,
+    "seen": 1791800158.3950503,
+    "ast_hash": "c4d61391ce399d5d1d051142172ca537",
+    "semantic_hash": ""
+  },
+  "resources/yamls/rule_holdem_simple.yaml": {
+    "mtime": 1790950553.8426352,
+    "seen": 1791800158.3950503,
+    "ast_hash": "209f25252b4e2f45a91051ece33d7124",
+    "semantic_hash": ""
+  },
+  "resources/yamls/rule_shortdeck_flopsolver.yaml": {
+    "mtime": 1790950553.8426352,
+    "seen": 1791800158.3950503,
+    "ast_hash": "76d92bc6e8047c40e56720958dcc7773",
+    "semantic_hash": ""
+  },
+  "resources/yamls/rule_shortdeck_simple.yaml": {
+    "mtime": 1790950553.843643,
+    "seen": 1791800158.3950503,
+    "ast_hash": "72cb66905f6422623e622741a1853317",
+    "semantic_hash": ""
+  },
+  "resources/yamls/rule_shortdeck_turnriversolver.yaml": {
+    "mtime": 1790950553.843643,
+    "seen": 1791800158.3950503,
+    "ast_hash": "0ab9d23c3d6772d66e234ff985bb1298",
+    "semantic_hash": ""
+  },
+  "resources/yamls/rule_shortdeck_turnsolver.yaml": {
+    "mtime": 1790950553.844628,
+    "seen": 1791800158.3950503,
+    "ast_hash": "f46179f88a70093583ae7f12f1bc308d",
+    "semantic_hash": ""
+  },
+  "resources/yamls/rule_shortdeck_turnsolver_withallin.yaml": {
+    "mtime": 1790950553.844628,
+    "seen": 1791800158.3950503,
+    "ast_hash": "e37ceccaff63d704be2cba494a32fc94",
+    "semantic_hash": ""
+  },
+  "benchmark/benchmark_outputs/result_compair.png": {
+    "mtime": 1790950553.323433,
+    "seen": 1791800158.3950503,
+    "ast_hash": "aa7b224a10feae01cb85093273483f07",
+    "semantic_hash": ""
+  },
+  "imgs/see_result.gif": {
+    "mtime": 1790950553.3805523,
+    "seen": 1791800158.3950503,
+    "ast_hash": "3c54ab3a184c8601c97da64f3b5d79fb",
+    "semantic_hash": ""
+  },
+  "imgs/solver_example.gif": {
+    "mtime": 1790950553.3997376,
+    "seen": 1791800158.3960507,
+    "ast_hash": "d45850d3d658931ab026fa847171468f",
+    "semantic_hash": ""
+  },
+  "imgs/solving.gif": {
+    "mtime": 1790950553.4027371,
+    "seen": 1791800158.3960507,
+    "ast_hash": "7458436ef0e89a02909012bbff16a1f1",
+    "semantic_hash": ""
+  },
+  "imgs/texassolver_logo.png": {
+    "mtime": 1790950553.4075665,
+    "seen": 1791800158.3960507,
+    "ast_hash": "d93d25a7d6dc0a2db8ea054769462694",
+    "semantic_hash": ""
+  },
+  "include/api/local_backend.h": {
+    "mtime": 1791812807.4091122,
+    "seen": 1791813115.0262992,
+    "ast_hash": "fd3a0ba923103456342fcb1e147f395a",
+    "semantic_hash": ""
+  },
+  "src/api/local_backend.cpp": {
+    "mtime": 1791812837.8025346,
+    "seen": 1791813115.042421,
+    "ast_hash": "16892a4bcba7afa590ca605764bed065",
+    "semantic_hash": ""
+  }
+}

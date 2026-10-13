@@ -1,0 +1,38 @@
+---
+Language: Cpp
+BasedOnStyle: LLVM
+Standard: c++17
+
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 120
+AccessModifierOffset: -4
+IndentCaseLabels: true
+
+BreakBeforeBraces: Attach
+AlwaysBreakTemplateDeclarations: Yes
+
+DerivePointerAlignment: false
+PointerAlignment: Left
+ReferenceAlignment: Left
+
+MaxEmptyLinesToKeep: 1
+KeepEmptyLinesAtTheStartOfBlocks: false
+SeparateDefinitionBlocks: Always
+
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Empty
+
+SpaceBeforeParens: ControlStatements
+
+# Several files carry ASCII-art banners and upstream license text that must
+# not be rewrapped.
+ReflowComments: false
+
+# Includes are written relative to the repository root and their order is
+# load-bearing in a few headers, so leave them as the author wrote them.
+SortIncludes: false
+IncludeBlocks: Preserve
