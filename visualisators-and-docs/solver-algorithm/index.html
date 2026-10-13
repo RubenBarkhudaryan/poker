@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How the solver works</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <h1>Solver algorithm</h1>
+      <p class="sub">Discounted CFR for Texas Hold'em, step by step from deck to the strategy the GUI shows.</p>
+      <div id="nav"></div>
+    </aside>
+    <main>
+      <div class="facts">
+        <div class="fact"><span>Deck</span><strong>52 cards</strong></div>
+        <div class="fact"><span>Starting hands</span><strong>1,326</strong></div>
+        <div class="fact"><span>Rank table</span><strong>2,598,961</strong></div>
+        <div class="fact"><span>Ranks</span><strong>2–A</strong></div>
+      </div>
+      <div class="pipe" id="pipe"></div>
+      <div class="toolbar">
+        <button class="ctrl" id="prev">Previous</button>
+        <button class="ctrl" id="play">Play</button>
+        <button class="ctrl" id="pause">Pause</button>
+        <button class="ctrl" id="next">Next</button>
+        <label>Speed
+          <select id="speed">
+            <option value="4200">Slow</option>
+            <option value="2600" selected>Normal</option>
+            <option value="1200">Fast</option>
+          </select>
+        </label>
+      </div>
+      <section class="layout">
+        <article class="panel">
+          <div class="kicker" id="kicker"></div>
+          <h2 id="title"></h2>
+          <p id="text"></p>
+          <div class="callout" id="callout"></div>
+        </article>
+        <article class="panel">
+          <div class="codehead"><span id="file"></span><span id="where"></span></div>
+          <pre id="code"></pre>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

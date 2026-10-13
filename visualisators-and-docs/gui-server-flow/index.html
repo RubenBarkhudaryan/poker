@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TexasSolver GUI to server</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <h1>GUI to server</h1>
+      <p class="sub">How TexasSolverGui sends a JSON line, what TexasSolverServer does with it, and what comes back. Pick a flow, then press Play.</p>
+      <div id="flows"></div>
+    </aside>
+    <main>
+      <div class="toolbar">
+        <button class="ctrl" id="play">Play</button>
+        <button class="ctrl" id="pause">Pause</button>
+        <button class="ctrl" id="prev">Previous step</button>
+        <button class="ctrl" id="step">Next step</button>
+        <button class="ctrl" id="reset">Reset</button>
+        <label>Speed
+          <select id="speed">
+            <option value="1400">Slow</option>
+            <option value="800" selected>Normal</option>
+            <option value="350">Fast</option>
+          </select>
+        </label>
+        <div class="legend">
+          <span><i class="dot ui"></i>UI sends</span>
+          <span><i class="dot server"></i>Inside server</span>
+          <span><i class="dot reply"></i>Response</span>
+        </div>
+      </div>
+      <div>
+        <h2 id="flow-title" style="margin:0 0 4px"></h2>
+        <p id="flow-blurb" class="sub" style="margin:0"></p>
+      </div>
+      <section class="stage">
+        <div class="col ui">
+          <h2>1. UI sends</h2>
+          <div id="ui-steps"></div>
+        </div>
+        <div class="rail"><div class="packet" id="packet-out"></div></div>
+        <div class="col server">
+          <h2>2. Inside the server</h2>
+          <div id="server-steps"></div>
+        </div>
+        <div class="rail"><div class="packet" id="packet-back"></div></div>
+        <div class="col reply">
+          <h2>3. Server response</h2>
+          <div id="reply-steps"></div>
+        </div>
+      </section>
+      <section class="inspector">
+        <div>
+          <h2 id="who">Press Play</h2>
+          <p class="meta" id="where"></p>
+        </div>
+        <div>
+          <h2>Source</h2>
+          <pre id="code"></pre>
+        </div>
+        <div>
+          <h2>Wire JSON</h2>
+          <pre id="json"></pre>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="sources.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
