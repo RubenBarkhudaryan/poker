@@ -41,7 +41,7 @@ class SolverServer
             return server_.errorString();
         }
 
-        // Called from solver/OpenMP threads through the Qt message handler.
+        // Called from the solver thread through the Qt message handler.
         void pushProgress(const ProgressEvent& event)
         {
             std::lock_guard<std::mutex> lock(mutex_);

@@ -42,6 +42,8 @@ public:
 
     void setEv(const vector<float>& evs) override;
 
+    void loadState(const vector<float>& r_plus, const vector<float>& cum_r_plus, const vector<float>& evs) override;
+
     void copyStrategy(shared_ptr<Trainable> other_trainable);
 
     json dump_strategy(bool with_state) override;

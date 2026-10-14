@@ -5,6 +5,7 @@
 #ifndef TEXASSOLVER_TRAINABLE_H
 #define TEXASSOLVER_TRAINABLE_H
 #include <vector>
+#include <stdexcept>
 #include "include/json.hpp"
 using namespace std;
 using json = nlohmann::json;
@@ -22,6 +23,11 @@ public:
     virtual json dump_strategy(bool with_state) = 0;
     virtual json dump_evs() = 0;
     virtual TrainableType get_type() = 0;
+    // Overwrites the learned state with values computed elsewhere (the OpenCL solver).
+    // All three vectors are laid out as [action_id * card_number + private_id].
+    virtual void loadState(const vector<float>& r_plus, const vector<float>& cum_r_plus, const vector<float>& evs) {
+        throw runtime_error("loadState not supported by this trainable");
+    }
 };
 
 #endif //TEXASSOLVER_TRAINABLE_H

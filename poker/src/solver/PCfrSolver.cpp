@@ -4,6 +4,7 @@
 
 #include <include/solver/BestResponse.h>
 #include "include/solver/PCfrSolver.h"
+#include "src/solver/gpu/GpuCfrEngine.h"
 #include <cassert>
 #include <QtCore>
 #include <QObject>
@@ -52,14 +53,8 @@ PCfrSolver::PCfrSolver(shared_ptr<GameTree> tree, vector<PrivateCards> range1, v
     this->print_interval = print_interval;
     this->monteCarolAlg = monteCarolAlg;
     this->accuracy = accuracy;
-    if (num_threads == -1) {
-        num_threads = omp_get_num_procs();
-    }
-    qDebug().noquote() << QString::fromStdString(
-        tfm::format(QObject::tr("Using %s threads").toStdString().c_str(), num_threads));
     this->num_threads = num_threads;
     this->distributing_task = false;
-    omp_set_num_threads(this->num_threads);
     setTrainable(this->tree->getRoot());
     this->root_round = this->tree->getRoot()->getRound();
     if (this->root_round == GameTreeNode::GameRound::PREFLOP) {
@@ -302,65 +297,48 @@ vector<float> PCfrSolver::chanceUtility(int player, shared_ptr<ChanceNode> node,
         valid_cards.push_back(card);
     }
 
-    std::exception_ptr error;
-
-#pragma omp parallel for schedule(static)
-    for (int valid_ind = 0; valid_ind < valid_cards.size(); valid_ind++)
-    {
-        try {
-            int card = valid_cards[valid_ind];
-            shared_ptr<GameTreeNode> one_child = node->getChildren();
-            Card* one_card = const_cast<Card*>(&(node->getCards()[card]));
-            uint64_t card_long = Card::boardInt2long(one_card->getCardInt());
-            uint64_t new_board_long = current_board | card_long;
-            if (this->monteCarolAlg == MonteCarolAlg::PUBLIC) {
-                throw runtime_error("parallel solver don't support public monte carol");
-            }
-            vector<PrivateCards>& playerPrivateCard = (this->ranges[player]);
-            vector<PrivateCards>& oppoPrivateCards = (this->ranges[1 - player]);
-            vector<float> new_reach_probs = vector<float>(oppoPrivateCards.size());
-            assert(playerPrivateCard.size() == this->ranges[player].size() && "length not match");
-            assert(oppoPrivateCards.size() == this->ranges[1 - player].size() && "length not match");
-            int player_hand_len = this->ranges[oppo].size();
-            for (int player_hand = 0; player_hand < player_hand_len; player_hand++) {
-                PrivateCards& one_private = this->ranges[oppo][player_hand];
-                uint64_t privateBoardLong = one_private.toBoardLong();
-                if (Card::boardsHasIntercept(card_long, privateBoardLong)) {
-                    new_reach_probs[player_hand] = 0;
-                    continue;
-                }
-                new_reach_probs[player_hand] = reach_probs[player_hand] / possible_deals;
-            }
-            assert(!Card::boardsHasIntercept(current_board, card_long) && "board has intercept with dealt card");
-            int new_deal;
-            if (deal == 0) {
-                new_deal = card + 1;
-            } else if (deal > 0 && deal <= card_num) {
-                int origin_deal = deal - 1;
-                assert(origin_deal != card);
-                new_deal = card_num * origin_deal + card;
-                new_deal += (1 + card_num);
-            } else {
-                throw runtime_error(tfm::format("deal out of range : %s ", deal));
-            }
-            if (this->distributing_task && node->getRound() == this->split_round) {
-                results[one_card->getNumberInDeckInt()] = vector<float>(this->ranges[player].size());
-            } else {
-                vector<float> child_utility = this->cfr(player, one_child, new_reach_probs, iter, new_board_long, new_deal);
-                results[one_card->getNumberInDeckInt()] = child_utility;
-            }
+    for (int card : valid_cards) {
+        shared_ptr<GameTreeNode> one_child = node->getChildren();
+        Card* one_card = const_cast<Card*>(&(node->getCards()[card]));
+        uint64_t card_long = Card::boardInt2long(one_card->getCardInt());
+        uint64_t new_board_long = current_board | card_long;
+        if (this->monteCarolAlg == MonteCarolAlg::PUBLIC) {
+            throw runtime_error("parallel solver don't support public monte carol");
         }
-        catch (...) {
-#pragma omp critical
-            {
-                if (!error)
-                    error = std::current_exception();
+        vector<PrivateCards>& playerPrivateCard = (this->ranges[player]);
+        vector<PrivateCards>& oppoPrivateCards = (this->ranges[1 - player]);
+        vector<float> new_reach_probs = vector<float>(oppoPrivateCards.size());
+        assert(playerPrivateCard.size() == this->ranges[player].size() && "length not match");
+        assert(oppoPrivateCards.size() == this->ranges[1 - player].size() && "length not match");
+        int player_hand_len = this->ranges[oppo].size();
+        for (int player_hand = 0; player_hand < player_hand_len; player_hand++) {
+            PrivateCards& one_private = this->ranges[oppo][player_hand];
+            uint64_t privateBoardLong = one_private.toBoardLong();
+            if (Card::boardsHasIntercept(card_long, privateBoardLong)) {
+                new_reach_probs[player_hand] = 0;
+                continue;
             }
+            new_reach_probs[player_hand] = reach_probs[player_hand] / possible_deals;
+        }
+        assert(!Card::boardsHasIntercept(current_board, card_long) && "board has intercept with dealt card");
+        int new_deal;
+        if (deal == 0) {
+            new_deal = card + 1;
+        } else if (deal > 0 && deal <= card_num) {
+            int origin_deal = deal - 1;
+            assert(origin_deal != card);
+            new_deal = card_num * origin_deal + card;
+            new_deal += (1 + card_num);
+        } else {
+            throw runtime_error(tfm::format("deal out of range : %s ", deal));
+        }
+        if (this->distributing_task && node->getRound() == this->split_round) {
+            results[one_card->getNumberInDeckInt()] = vector<float>(this->ranges[player].size());
+        } else {
+            vector<float> child_utility = this->cfr(player, one_child, new_reach_probs, iter, new_board_long, new_deal);
+            results[one_card->getNumberInDeckInt()] = child_utility;
         }
     }
-
-    if (error)
-        std::rethrow_exception(error);
 
     for (std::size_t card = 0; card < node->getCards().size(); card++) {
         Card* one_card = const_cast<Card*>(&(node->getCards()[card]));
@@ -441,15 +419,12 @@ vector<float> PCfrSolver::actionUtility(int player, shared_ptr<ActionNode> node,
                 float strategy_prob = current_strategy[hand_id + action_id * node_player_private_cards.size()];
                 new_reach_prob[hand_id] = reach_probs[hand_id] * strategy_prob;
             }
-            //#pragma omp task shared(results,action_id)
             results[action_id] = this->cfr(player, children[action_id], new_reach_prob, iter, current_board, deal);
         } else {
-            //#pragma omp task shared(results,action_id)
             results[action_id] = this->cfr(player, children[action_id], reach_probs, iter, current_board, deal);
         }
     }
 
-    //#pragma omp taskwait
     for (std::size_t action_id = 0; action_id < actions.size(); action_id++) {
         vector<float> action_utilities = results[action_id];
         if (action_utilities.empty()) {
@@ -731,6 +706,39 @@ void PCfrSolver::stop() {
     this->nowstop = true;
 }
 
+unique_ptr<GpuCfrEngine> PCfrSolver::createGpuEngine() {
+    if (GpuCfrEngine::disabledByEnvironment()) {
+        qDebug().noquote() << QObject::tr("OpenCL disabled by TEXASSOLVER_DISABLE_OPENCL");
+        return nullptr;
+    }
+    if (this->monteCarolAlg != MonteCarolAlg::NONE || this->warmup >= 0) {
+        qDebug().noquote() << QObject::tr("The OpenCL solver does not support warmup or monte carlo sampling");
+        return nullptr;
+    }
+    try {
+        unique_ptr<GpuCfrEngine> engine =
+            make_unique<GpuCfrEngine>(this->tree, this->ranges, this->pcm, this->compairer, this->deck,
+                                      this->color_iso_offset, this->use_halffloats, this->initial_board_long);
+        qDebug().noquote() << QObject::tr("Solving with OpenCL on") << QString::fromStdString(engine->description());
+        return engine;
+    } catch (const exception& e) {
+        qDebug().noquote() << QObject::tr("OpenCL solver unavailable:") << QString::fromStdString(e.what());
+        return nullptr;
+    }
+}
+
+void PCfrSolver::setLiveEngine(GpuCfrEngine* engine) {
+    lock_guard<mutex> lock(this->live_engine_mutex);
+    this->live_engine = engine;
+}
+
+// While solving on OpenCL the trainables live on the device; fetch the one about to be read.
+void PCfrSolver::syncLiveTrainable(const shared_ptr<ActionNode>& node, int deal) {
+    lock_guard<mutex> lock(this->live_engine_mutex);
+    if (this->live_engine != nullptr)
+        this->live_engine->syncTrainable(node.get(), deal);
+}
+
 void PCfrSolver::train() {
     vector<vector<PrivateCards>> player_privates(this->player_number);
     player_privates[0] = pcm.getPreflopCards(0);
@@ -738,13 +746,40 @@ void PCfrSolver::train() {
     if (this->use_isomorphism) {
         this->findGameSpecificIsomorphisms();
     }
-
-    BestResponse br = BestResponse(player_privates, this->player_number, this->pcm, this->rrm, this->deck, this->debug,
-                                   this->color_iso_offset, this->split_round, this->num_threads, this->use_halffloats);
-
-    br.printExploitability(tree->getRoot(), 0, tree->getRoot()->getPot(), initial_board_long);
-
+    float initial_pot = tree->getRoot()->getPot();
     vector<vector<float>> reach_probs = this->getReachProbs();
+
+    unique_ptr<GpuCfrEngine> engine = this->createGpuEngine();
+    // Detaches the engine from strategy queries however training ends.
+    struct LiveEngineGuard {
+        PCfrSolver* solver;
+        ~LiveEngineGuard() {
+            solver->setLiveEngine(nullptr);
+        }
+    } live_engine_guard{this};
+    this->setLiveEngine(engine.get());
+    unique_ptr<BestResponse> br;
+    if (!engine) {
+        qDebug().noquote() << QObject::tr("Solving on the CPU");
+        br = make_unique<BestResponse>(player_privates, this->player_number, this->pcm, this->rrm, this->deck,
+                                       this->debug, this->color_iso_offset, this->split_round, this->num_threads,
+                                       this->use_halffloats);
+    }
+    auto exploitability = [&](int iteration_count) {
+        if (engine)
+            return engine->exploitability(iteration_count, initial_pot);
+        return br->printExploitability(tree->getRoot(), iteration_count, initial_pot, initial_board_long);
+    };
+    // One traversal per player; collecting_statics turns it into the final ev pass.
+    auto run_cfr = [&](int iter) {
+        for (int player_id = 0; player_id < this->player_number; player_id++) {
+            this->round_deal = vector<int>{-1, -1, -1, -1};
+            cfr(player_id, this->tree->getRoot(), reach_probs[1 - player_id], iter, this->initial_board_long, 0);
+        }
+    };
+
+    exploitability(0);
+
     ofstream fileWriter;
     if (!this->logfile.empty())
         fileWriter.open(this->logfile);
@@ -753,24 +788,15 @@ void PCfrSolver::train() {
     uint64_t endtime = timeSinceEpochMillisec();
 
     for (int i = 0; i < this->iteration_number; i++) {
-        for (int player_id = 0; player_id < this->player_number; player_id++) {
-            this->round_deal = vector<int>{-1, -1, -1, -1};
-            //#pragma omp parallel
-            {
-                //#pragma omp single
-                {
-                    //this->distributing_task = true;
-                    cfr(player_id, this->tree->getRoot(), reach_probs[1 - player_id], i, this->initial_board_long, 0);
-                    //throw runtime_error("returning...");
-                }
-            }
-        }
+        if (engine)
+            engine->iterate(i, i % this->print_interval == 0);
+        else
+            run_cfr(i);
         if ((i % this->print_interval == 0 && i != 0 && i >= this->warmup) || this->nowstop) {
             endtime = timeSinceEpochMillisec();
             long time_ms = endtime - begintime;
             qDebug().noquote() << "-------------------";
-            float expliotibility =
-                br.printExploitability(tree->getRoot(), i + 1, tree->getRoot()->getPot(), initial_board_long);
+            float expliotibility = exploitability(i + 1);
             qDebug().noquote() << QObject::tr("time used: ") << float(time_ms) / 1000 << QObject::tr(" second.");
             if (!this->logfile.empty()) {
                 json jo;
@@ -791,20 +817,16 @@ void PCfrSolver::train() {
     }
 
     qDebug().noquote() << QObject::tr("collecting statics");
-    this->collecting_statics = true;
-    for (int player_id = 0; player_id < this->player_number; player_id++) {
-        this->round_deal = vector<int>{-1, -1, -1, -1};
-        //#pragma omp parallel
-        {
-            //#pragma omp single
-            {
-                //this->distributing_task = true;
-                cfr(player_id, this->tree->getRoot(), reach_probs[1 - player_id], this->iteration_number,
-                    this->initial_board_long, 0);
-            }
-        }
+    if (engine) {
+        engine->collectStatistics(this->iteration_number);
+        lock_guard<mutex> lock(this->live_engine_mutex);
+        engine->writeBack();
+        this->live_engine = nullptr;
+    } else {
+        this->collecting_statics = true;
+        run_cfr(this->iteration_number);
+        this->collecting_statics = false;
     }
-    this->collecting_statics = false;
     this->statics_collected = true;
     qDebug().noquote() << QObject::tr("statics collected");
 
@@ -1020,6 +1042,7 @@ vector<vector<vector<float>>> PCfrSolver::get_strategy(shared_ptr<ActionNode> no
         }
         deal = new_deal;
     }
+    this->syncLiveTrainable(node, deal);
     shared_ptr<Trainable> trainable = node->getTrainable(deal, true, this->use_halffloats);
     json retjson = trainable->dump_strategy(false);
     ;
@@ -1103,6 +1126,7 @@ vector<vector<vector<float>>> PCfrSolver::get_evs(shared_ptr<ActionNode> node, v
         }
         deal = new_deal;
     }
+    this->syncLiveTrainable(node, deal);
     shared_ptr<Trainable> trainable = node->getTrainable(deal, true, this->use_halffloats);
     json retjson = trainable->dump_evs();
 

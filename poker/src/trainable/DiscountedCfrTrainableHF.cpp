@@ -208,3 +208,15 @@ json DiscountedCfrTrainableHF::dump_evs() {
 Trainable::TrainableType DiscountedCfrTrainableHF::get_type() {
     return DISCOUNTED_CFR_TRAINABLE;
 }
+
+void DiscountedCfrTrainableHF::loadState(const vector<float>& r_plus, const vector<float>& cum_r_plus,
+                                         const vector<float>& evs) {
+    if (r_plus.size() != this->r_plus.size() || cum_r_plus.size() != this->cum_r_plus.size() ||
+        evs.size() != this->evs.size())
+        throw runtime_error("size mismatch in discountcfrtrainable loadState");
+    for (std::size_t i = 0; i < r_plus.size(); i++) {
+        this->r_plus[i] = (RplusStorage)r_plus[i];
+        this->cum_r_plus[i] = (CumRplusStorage)cum_r_plus[i];
+        this->evs[i] = (EvsStorage)evs[i];
+    }
+}

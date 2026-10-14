@@ -12,11 +12,14 @@
 #include <include/trainable/CfrPlusTrainable.h>
 #include <include/trainable/DiscountedCfrTrainable.h>
 #include "include/solver/Solver.h"
-#include <omp.h>
 #include "include/tools/lookup8.h"
 #include "include/tools/utils.h"
+#include <memory>
+#include <mutex>
 #include <queue>
 #include <optional>
+
+class GpuCfrEngine;
 
 /*
 template<typename T>
@@ -117,11 +120,18 @@ private:
     bool use_isomorphism;
     int use_halffloats;
     bool nowstop = false;
+    // The OpenCL engine while a solve runs on it; strategy queries from other threads read through it.
+    GpuCfrEngine* live_engine = nullptr;
+    std::mutex live_engine_mutex;
 
     const vector<PrivateCards>& playerHands(int player);
     vector<vector<float>> getReachProbs();
     static vector<PrivateCards> noDuplicateRange(const vector<PrivateCards>& private_range, uint64_t board_long);
     void setTrainable(shared_ptr<GameTreeNode> root);
+    // Returns nullptr when the OpenCL solver cannot run this solve, after logging why.
+    unique_ptr<GpuCfrEngine> createGpuEngine();
+    void setLiveEngine(GpuCfrEngine* engine);
+    void syncLiveTrainable(const shared_ptr<ActionNode>& node, int deal);
     vector<float> cfr(int player, shared_ptr<GameTreeNode> node, const vector<float>& reach_probs, int iter,
                       uint64_t current_board, int deal);
     vector<int> getAllAbstractionDeal(int deal);

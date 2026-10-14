@@ -15,8 +15,35 @@ endif()
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Gui Widgets Network)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets Network)
-find_package(OpenMP REQUIRED)
 find_package(Threads REQUIRED)
+
+# The solver runs on OpenCL devices. Without an OpenCL SDK on the system, the Khronos headers and ICD loader
+# are fetched; the loader dispatches to whatever OpenCL drivers (NVIDIA, AMD, Intel) are installed.
+find_package(OpenCL QUIET)
+if(NOT OpenCL_FOUND)
+    include(FetchContent)
+    set(OPENCL_ICD_LOADER_BUILD_TESTING OFF CACHE BOOL "" FORCE)
+    set(OPENCL_ICD_LOADER_BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)
+    FetchContent_Declare(OpenCLHeaders
+        GIT_REPOSITORY https://github.com/KhronosGroup/OpenCL-Headers.git
+        GIT_TAG v2024.10.24
+        GIT_SHALLOW TRUE)
+    FetchContent_Declare(OpenCLICDLoader
+        GIT_REPOSITORY https://github.com/KhronosGroup/OpenCL-ICD-Loader.git
+        GIT_TAG v2024.10.24
+        GIT_SHALLOW TRUE)
+    FetchContent_MakeAvailable(OpenCLHeaders OpenCLICDLoader)
+endif()
+
+# Embed the OpenCL kernels in the binary as a byte array.
+set(CFR_KERNEL_FILE ${CMAKE_CURRENT_SOURCE_DIR}/src/solver/gpu/cfr_kernels.cl)
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${CFR_KERNEL_FILE})
+file(READ ${CFR_KERNEL_FILE} CFR_KERNEL_HEX HEX)
+string(REGEX REPLACE "([0-9a-f][0-9a-f])" "0x\\1," CFR_KERNEL_HEX "${CFR_KERNEL_HEX}")
+file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/generated/cfr_kernels_cl.h.tmp
+    "// Generated from src/solver/gpu/cfr_kernels.cl\nstatic const char kCfrKernelSource[] = {${CFR_KERNEL_HEX}0x00};\n")
+configure_file(${CMAKE_CURRENT_BINARY_DIR}/generated/cfr_kernels_cl.h.tmp
+    ${CMAKE_CURRENT_BINARY_DIR}/generated/cfr_kernels_cl.h COPYONLY)
 
 # Value types and the wire protocol, shared by the solver core, the server and the GUI.
 set(COMMON_SOURCES
@@ -54,6 +81,8 @@ set(CORE_SOURCES
     src/solver/CfrSolver.cpp
     src/solver/PCfrSolver.cpp
     src/solver/Solver.cpp
+    src/solver/gpu/GpuCfrEngine.cpp
+    src/solver/gpu/OpenClContext.cpp
     src/tools/CommandLineTool.cpp
     src/tools/GameTreeBuildingSettings.cpp
     src/tools/PrivateRangeConverter.cpp
@@ -89,6 +118,9 @@ set(CORE_HEADERS
     src/solver/CfrSolver.h
     src/solver/PCfrSolver.h
     src/solver/Solver.h
+    src/solver/gpu/GpuCfrEngine.h
+    src/solver/gpu/OpenClContext.h
+    src/solver/gpu/cfr_kernels.cl
     src/tools/CommandLineTool.h
     src/tools/GameTreeBuildingSettings.h
     src/tools/PrivateRangeConverter.h
@@ -182,9 +214,11 @@ target_compile_definitions(TexasSolverCommon PUBLIC QT_DEPRECATED_WARNINGS)
 target_link_libraries(TexasSolverCommon PUBLIC Qt${QT_VERSION_MAJOR}::Core)
 
 add_library(TexasSolverCore STATIC ${CORE_SOURCES} ${CORE_HEADERS})
+target_include_directories(TexasSolverCore PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
+target_compile_definitions(TexasSolverCore PUBLIC CL_TARGET_OPENCL_VERSION=120)
 target_link_libraries(TexasSolverCore PUBLIC
     TexasSolverCommon
-    OpenMP::OpenMP_CXX
+    OpenCL::OpenCL
 )
 add_executable(TexasSolverGui WIN32 ${GUI_SOURCES} ${GUI_HEADERS} ${FORMS} ${RESOURCES})
 if(APPLE)
@@ -219,6 +253,21 @@ target_link_libraries(TexasSolverServer PRIVATE
     Threads::Threads
 )
 
+# Ship the fetched OpenCL loader next to the server, which is what runs the solver.
+if(WIN32 AND TARGET OpenCL)
+    add_custom_command(TARGET TexasSolverServer POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different "$<TARGET_FILE:OpenCL>" "$<TARGET_FILE_DIR:TexasSolverServer>"
+        COMMENT "Deploying OpenCL loader"
+    )
+endif()
+
+# Console benchmark comparing the OpenCL and CPU solvers on the same spot.
+option(TEXASSOLVER_BUILD_BENCH "Build the TexasSolverBench console tool" OFF)
+if(TEXASSOLVER_BUILD_BENCH)
+    add_executable(TexasSolverBench src/tools/bench_main.cpp)
+    target_link_libraries(TexasSolverBench PRIVATE TexasSolverCore)
+endif()
+
 # Local mode launches TexasSolverServer from the GUI's own directory.
 add_dependencies(TexasSolverGui TexasSolverServer)
 
@@ -243,7 +292,6 @@ if(WIN32)
                         "${MINGW_BIN_DIR}/libgcc_s_seh-1.dll"
                         "${MINGW_BIN_DIR}/libstdc++-6.dll"
                         "${MINGW_BIN_DIR}/libwinpthread-1.dll"
-                        "${MINGW_BIN_DIR}/libgomp-1.dll"
                         "$<TARGET_FILE_DIR:TexasSolverGui>"
                 COMMENT "Deploying MinGW runtime"
             )

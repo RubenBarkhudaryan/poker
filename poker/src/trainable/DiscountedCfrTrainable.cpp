@@ -188,3 +188,20 @@ json DiscountedCfrTrainable::dump_evs() {
 Trainable::TrainableType DiscountedCfrTrainable::get_type() {
     return DISCOUNTED_CFR_TRAINABLE;
 }
+
+void DiscountedCfrTrainable::loadState(const vector<float>& r_plus, const vector<float>& cum_r_plus,
+                                       const vector<float>& evs) {
+    if (r_plus.size() != this->r_plus.size() || cum_r_plus.size() != this->cum_r_plus.size() ||
+        evs.size() != this->evs.size())
+        throw runtime_error("size mismatch in discountcfrtrainable loadState");
+    this->r_plus = r_plus;
+    this->cum_r_plus = cum_r_plus;
+    this->evs = evs;
+    fill(r_plus_sum.begin(), r_plus_sum.end(), 0);
+    for (int action_id = 0; action_id < action_number; action_id++) {
+        for (int private_id = 0; private_id < this->card_number; private_id++) {
+            int index = action_id * this->card_number + private_id;
+            this->r_plus_sum[private_id] += max(float(0.0), this->r_plus[index]);
+        }
+    }
+}

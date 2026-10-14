@@ -35,6 +35,18 @@ Download package according to your OS in [release package](https://github.com/bu
 
 After install the solver, double click the application binary (TexasSolverGui.exe in windows or TexasSolverGui.app in MacOS) to run TexasSolver.
 
+## GPU solving (OpenCL)
+
+The solver runs on the GPU through OpenCL, so any GPU with an OpenCL driver works (NVIDIA, AMD, Intel). It picks the best available device automatically, preferring a discrete GPU, and logs which one it uses when a solve starts. The whole tree is kept in GPU memory; enabling "use half floats" stores the average strategy and evs as fp16 to fit larger trees.
+
+If no OpenCL device is available, the tree does not fit in GPU memory, or a warmup is requested, the solver falls back to a single-threaded CPU solver. Set the environment variable `TEXASSOLVER_DISABLE_OPENCL=1` to force the CPU solver. The "threads" setting is no longer used.
+
+Building needs the OpenCL headers and loader. CMake uses the system OpenCL SDK when it finds one, and otherwise downloads the Khronos headers and ICD loader. Configure with `-DTEXASSOLVER_BUILD_BENCH=ON` to also build `TexasSolverBench`, which solves a spot on the GPU and on the CPU and compares the strategies:
+
+```
+TexasSolverBench <resource_dir> <board> <iterations> [gpu|cpu|both] [half_floats]
+```
+
 ## Console version Usage
 
 Please check [console version document](https://github.com/bupticybee/TexasSolver/tree/console#usage) for more.

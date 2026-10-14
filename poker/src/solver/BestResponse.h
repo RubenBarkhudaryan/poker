@@ -4,7 +4,6 @@
 
 #ifndef TEXASSOLVER_BESTRESPONSE_H
 #define TEXASSOLVER_BESTRESPONSE_H
-#include <omp.h>
 #include <include/ranges/PrivateCards.h>
 #include <include/compairer/Compairer.h>
 #include <include/Deck.h>

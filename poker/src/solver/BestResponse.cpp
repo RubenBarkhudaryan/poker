@@ -30,7 +30,6 @@ BestResponse::BestResponse(vector<vector<PrivateCards>>& private_combos, int pla
         }
     }
     this->split_round = split_round;
-    omp_set_num_threads(this->nthreads);
 }
 
 float BestResponse::printExploitability(shared_ptr<GameTreeNode> root, int iterationCount, float initial_pot,
@@ -130,72 +129,55 @@ vector<float> BestResponse::chanceBestReponse(shared_ptr<ChanceNode> node, int p
 
     vector<vector<float>> results(node->getCards().size());
 
-    std::exception_ptr error;
-
-#pragma omp parallel for
-    for (int card = 0; card < node->getCards().size(); card++)
-    {
-        try
-        {
-            shared_ptr<GameTreeNode> one_child = node->getChildren();
-            Card one_card = node->getCards()[card];
-            uint64_t card_long = Card::boardInt2long(one_card.getCardInt());
-            // A card already on the board cannot be dealt again
-            if (Card::boardsHasIntercept(card_long, current_board))
-                continue;
-            if (this->color_iso_offset[deal][one_card.getCardInt() % 4] < 0)
-                continue;
-            const vector<PrivateCards>& playerPrivateCard =
-                this->pcm.getPreflopCards(player); //this.getPlayerPrivateCard(player);
-            const vector<PrivateCards>& oppoPrivateCards = this->pcm.getPreflopCards(1 - player);
-            if (best_respond_arr_new_reach_probs[card].empty()) {
-                best_respond_arr_new_reach_probs[card] = vector<vector<float>>(2);
-            }
-            vector<vector<float>> new_reach_probs = best_respond_arr_new_reach_probs[card];
-            if (new_reach_probs[player].empty()) {
-                new_reach_probs[player] = vector<float>(playerPrivateCard.size());
-                new_reach_probs[1 - player] = vector<float>(oppoPrivateCards.size());
-            }
-            assert(playerPrivateCard.size() == reach_probs[player].size() && "length not match1");
-            assert(oppoPrivateCards.size() == reach_probs[1 - player].size() && "length not match2");
-            for (int one_player = 0; one_player < 2; one_player++) {
-                int player_hand_len = this->pcm.getPreflopCards(one_player).size();
-                for (int player_hand = 0; player_hand < player_hand_len; player_hand++) {
-                    uint64_t privateBoardLong = this->pcm.getPreflopCards(one_player)[player_hand].toBoardLong();
-                    if (Card::boardsHasIntercept(card_long, privateBoardLong)) {
-                        new_reach_probs[one_player][player_hand] = 0;
-                        continue;
-                    }
-                    new_reach_probs[one_player][player_hand] = reach_probs[one_player][player_hand] / possible_deals;
+    for (std::size_t card = 0; card < node->getCards().size(); card++) {
+        shared_ptr<GameTreeNode> one_child = node->getChildren();
+        Card one_card = node->getCards()[card];
+        uint64_t card_long = Card::boardInt2long(one_card.getCardInt());
+        // A card already on the board cannot be dealt again
+        if (Card::boardsHasIntercept(card_long, current_board))
+            continue;
+        if (this->color_iso_offset[deal][one_card.getCardInt() % 4] < 0)
+            continue;
+        const vector<PrivateCards>& playerPrivateCard =
+            this->pcm.getPreflopCards(player); //this.getPlayerPrivateCard(player);
+        const vector<PrivateCards>& oppoPrivateCards = this->pcm.getPreflopCards(1 - player);
+        if (best_respond_arr_new_reach_probs[card].empty()) {
+            best_respond_arr_new_reach_probs[card] = vector<vector<float>>(2);
+        }
+        vector<vector<float>> new_reach_probs = best_respond_arr_new_reach_probs[card];
+        if (new_reach_probs[player].empty()) {
+            new_reach_probs[player] = vector<float>(playerPrivateCard.size());
+            new_reach_probs[1 - player] = vector<float>(oppoPrivateCards.size());
+        }
+        assert(playerPrivateCard.size() == reach_probs[player].size() && "length not match1");
+        assert(oppoPrivateCards.size() == reach_probs[1 - player].size() && "length not match2");
+        for (int one_player = 0; one_player < 2; one_player++) {
+            int player_hand_len = this->pcm.getPreflopCards(one_player).size();
+            for (int player_hand = 0; player_hand < player_hand_len; player_hand++) {
+                uint64_t privateBoardLong = this->pcm.getPreflopCards(one_player)[player_hand].toBoardLong();
+                if (Card::boardsHasIntercept(card_long, privateBoardLong)) {
+                    new_reach_probs[one_player][player_hand] = 0;
+                    continue;
                 }
-            }
-            assert(!Card::boardsHasIntercept(current_board, card_long) && "board has intercept with dealt card");
-            uint64_t new_board_long = current_board | card_long;
-            int new_deal;
-            if (deal == 0) {
-                new_deal = card + 1;
-            } else if (deal > 0 && deal <= card_num) {
-                int origin_deal = deal - 1;
-                assert(origin_deal != card && "deal should not be equal");
-                new_deal = card_num * origin_deal + card;
-                new_deal += (1 + card_num);
-            } else {
-                throw runtime_error(tfm::format("deal out of range : %s ", deal));
-            }
-            vector<float> child_utility = this->bestResponse(one_child, player, new_reach_probs, new_board_long, new_deal);
-            results[one_card.getNumberInDeckInt()] = child_utility;
-        }
-        catch (...) {
-#pragma omp critical
-            {
-                if (!error)
-                    error = std::current_exception();
+                new_reach_probs[one_player][player_hand] = reach_probs[one_player][player_hand] / possible_deals;
             }
         }
+        assert(!Card::boardsHasIntercept(current_board, card_long) && "board has intercept with dealt card");
+        uint64_t new_board_long = current_board | card_long;
+        int new_deal;
+        if (deal == 0) {
+            new_deal = card + 1;
+        } else if (deal > 0 && deal <= card_num) {
+            int origin_deal = deal - 1;
+            assert(origin_deal != card && "deal should not be equal");
+            new_deal = card_num * origin_deal + card;
+            new_deal += (1 + card_num);
+        } else {
+            throw runtime_error(tfm::format("deal out of range : %s ", deal));
+        }
+        vector<float> child_utility = this->bestResponse(one_child, player, new_reach_probs, new_board_long, new_deal);
+        results[one_card.getNumberInDeckInt()] = child_utility;
     }
-
-    if (error)
-        std::rethrow_exception(error);
 
     for (std::size_t card = 0; card < node->getCards().size(); card++) {
         Card* one_card = const_cast<Card*>(&(node->getCards()[card]));
